@@ -11,14 +11,9 @@ import java.util.ArrayList;
 public class SunFlower extends Plants {
 
     /**
-     * The sun sunflower produced.
+     * Time has left to produce a sun per second by a sunflower.
      */
-    private Sun sun;
-
-    /**
-     * Time has left to produce a sun by a sunflower.
-     */
-    private int producingTime;
+    public static final int PRODUCINGTIME = 20;
 
     /**
      * @param bulletArr     Array of bullet that plant can shoot it. If plant can't shoot a bullet, it equal to null.
@@ -45,5 +40,12 @@ public class SunFlower extends Plants {
                      int x,
                      int y) {
         super(bulletArr, img, image, cost, life, preparingTime, locX, locY, bornTime, x, y);
+    }
+
+    /**
+     * Produce a sun
+     */
+    public void produceSun() {
+        new Sun();
     }
 }
