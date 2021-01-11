@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="440e9d3a-2660-4e2b-9798-7f92040d7073" name="Default Changelist" comment="Change name of &quot;Flower&quot; class to &quot;SunFlower&quot; class.">
+    <list default="true" id="440e9d3a-2660-4e2b-9798-7f92040d7073" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/khosro/Bullet/Bullet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/Bullet/PeaBullet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/Bullet/SnowBullet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/khosro/Bullet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/khosro/plant/Cherry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/plant/Cherry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/khosro/plant/Peashooter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/plant/Peashooter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/khosro/plant/Plants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/plant/Plants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/khosro/plant/Potato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/plant/Potato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/khosro/plant/SnowPea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/plant/SnowPea.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/khosro/plant/SunFlower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/plant/SunFlower.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,6 +63,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1mjSUWKVgtd92UwOqI3gsKlsRgJ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -101,7 +112,7 @@
       <workItem from="1610338583150" duration="101000" />
       <workItem from="1610338852111" duration="1507000" />
       <workItem from="1610340531961" duration="486000" />
-      <workItem from="1610341143021" duration="1107000" />
+      <workItem from="1610341143021" duration="2269000" />
     </task>
     <task id="LOCAL-00001" summary="Change name of &quot;Flower&quot; class to &quot;SunFlower&quot; class.">
       <created>1610340218400</created>
@@ -110,23 +121,58 @@
       <option name="project" value="LOCAL" />
       <updated>1610340218400</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add fields of Plants">
+      <created>1610342295111</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1610342295112</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add fields and constructor to Plants class.">
+      <created>1610342644403</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1610342644403</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add getters.">
+      <created>1610343122954</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1610343122954</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Change name of &quot;Flower&quot; class to &quot;SunFlower&quot; class." />
-    <option name="LAST_COMMIT_MESSAGE" value="Change name of &quot;Flower&quot; class to &quot;SunFlower&quot; class." />
+    <MESSAGE value="Add fields of Plants" />
+    <MESSAGE value="Add fields and constructor to Plants class." />
+    <MESSAGE value="Add getters." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add getters." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="95" key="#com.intellij.ide.util.MemberChooser" timestamp="1610342145431">
+    <state x="549" y="95" key="#com.intellij.ide.util.MemberChooser" timestamp="1610343077323">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="488" y="83" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1610180655431" />
     <state x="488" y="88" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1610172961104" />
-    <state x="549" y="95" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1610342145431" />
+    <state x="549" y="95" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1610343077323" />
     <state x="618" y="307" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1610338608967">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -135,18 +181,42 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="474" y="264" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1366.728@0.0.1366.728" timestamp="1610181000451" />
-    <state x="391" y="0" key="CommitChangelistDialog2" timestamp="1610342259122">
+    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2" timestamp="1610344246936">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="391" y="0" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1610342259122" />
+    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1610344246936" />
+    <state x="93" y="93" width="1374" height="648" key="DiffContextDialog" timestamp="1610344042093">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="93" y="93" width="1374" height="648" key="DiffContextDialog/0.0.1536.834@0.0.1536.834" timestamp="1610344042093" />
     <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1610204936125">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1610204936125" />
+    <state x="349" y="153" key="IDE.errors.dialog" timestamp="1610342456943">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="349" y="153" key="IDE.errors.dialog/0.0.1536.834@0.0.1536.834" timestamp="1610342456943" />
     <state x="555" y="50" key="SettingsEditor" timestamp="1610340616331">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="555" y="50" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1610340616331" />
+    <state x="93" y="93" width="1350" height="648" key="ShowDiffWithBranchDialog" timestamp="1610344091066">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="93" y="93" width="1350" height="648" key="ShowDiffWithBranchDialog/0.0.1536.834@0.0.1536.834" timestamp="1610344091066" />
+    <state x="361" y="147" key="Vcs.Push.Dialog.v2" timestamp="1610342655335">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="361" y="147" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1610342655335" />
+    <state x="93" y="93" width="1350" height="648" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1610344091066">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="93" y="93" width="1350" height="648" key="com.intellij.dvcs.ui.CompareBranchesDialog/0.0.1536.834@0.0.1536.834" timestamp="1610344091066" />
+    <state x="557" y="49" key="git4idea.branch.GitSmartOperationDialog" timestamp="1610344043225">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="557" y="49" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.834@0.0.1536.834" timestamp="1610344043225" />
     <state x="65" y="0" key="new project wizard" timestamp="1610204832471">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

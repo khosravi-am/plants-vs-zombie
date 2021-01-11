@@ -1,11 +1,16 @@
 package khosro.plant;
 
-import khosro.Bullet;
+import khosro.Bullet.Bullet;
+import khosro.map.MapHome;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+/**
+ * SuperClass of all other plants.
+ * Keep fields of plants.
+ */
 public class Plants {
 
     /**
@@ -42,12 +47,12 @@ public class Plants {
     /**
      * X location in visual map
      */
-    protected int locX;
+    protected MapHome locX;
 
     /**
      * Y location in visual map
      */
-    protected int locY;
+    protected MapHome locY;
 
     /**
      * Time has left a plants card refresh.
@@ -64,14 +69,27 @@ public class Plants {
      */
     protected int y;
 
+    /**
+     * @param bulletArr Array of bullet that plant can shoot it. If plant can't shoot a bullet, it equal to null.
+     * @param img Image address.
+     * @param image Image of plants.
+     * @param cost Cost of each plants per sun
+     * @param life Each plants how many life time when zombies eat it.
+     * @param preparingTime The time each plants produce its product (sunflower produce a sun and shooters shoot a bullet)
+     * @param locX X location in visual map
+     * @param locY Y location in visual map
+     * @param bornTime Time has left a plants card refresh.
+     * @param x X location in map
+     * @param y Y location in map
+     */
     public Plants(ArrayList<Bullet> bulletArr,
                   BufferedImage img,
                   Image image,
                   int cost,
                   int life,
                   int preparingTime,
-                  int locX,
-                  int locY,
+                  MapHome locX,
+                  MapHome locY,
                   long bornTime,
                   int x,
                   int y) {
@@ -86,5 +104,21 @@ public class Plants {
         this.bornTime = bornTime;
         this.x = x;
         this.y = y;
+    }
+
+    public MapHome getLocX() {
+        return locX;
+    }
+
+    public MapHome getLocY() {
+        return locY;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 }
