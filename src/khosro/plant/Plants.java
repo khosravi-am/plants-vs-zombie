@@ -69,6 +69,8 @@ public class Plants {
      */
     protected int y;
 
+    protected boolean live;
+
     /**
      * @param bulletArr Array of bullet that plant can shoot it. If plant can't shoot a bullet, it equal to null.
      * @param img Image address.
@@ -104,6 +106,7 @@ public class Plants {
         this.bornTime = bornTime;
         this.x = x;
         this.y = y;
+        live = true;
     }
 
     public MapHome getLocX() {
@@ -120,5 +123,17 @@ public class Plants {
 
     public int getY() {
         return y;
+    }
+
+    public boolean isLive() {
+        return live;
+    }
+
+    public void setLive(boolean live) {
+        this.live = live;
+    }
+
+    public void dead() {
+        //TODO remove plant form screen.
     }
 }
