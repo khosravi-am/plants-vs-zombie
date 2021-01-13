@@ -1,7 +1,7 @@
-package khosro.model.plant;
+package khosro.model.component.plant;
 
-import khosro.model.Bullet.Bullet;
-import khosro.model.Sun;
+import khosro.model.component.Bullet.Bullet;
+import khosro.model.component.Sun;
 import khosro.model.map.MapHome;
 
 import java.awt.*;
@@ -47,6 +47,6 @@ public class SunFlower extends Plants {
      * Produce a sun
      */
     public void produceSun() {
-        new Sun();
+        new Sun(x, y);
     }
 }

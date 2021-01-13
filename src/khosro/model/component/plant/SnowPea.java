@@ -1,7 +1,7 @@
-package khosro.model.plant;
+package khosro.model.component.plant;
 
-import khosro.model.Bullet.Bullet;
-import khosro.model.Bullet.SnowBullet;
+import khosro.model.component.Bullet.Bullet;
+import khosro.model.component.Bullet.SnowBullet;
 import khosro.model.map.MapHome;
 
 import java.awt.*;
