@@ -1,9 +1,9 @@
 package khosro.zambia;
 
-public class NormZombie extends Zambia {
+public class NormZombie extends Zombie {
 
     public NormZombie(){
-
+        life = 11;
     }
 
 }

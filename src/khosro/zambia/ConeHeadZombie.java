@@ -1,9 +1,8 @@
 package khosro.zambia;
 
-public class ConeHeadZombie extends Zambia{
+public class ConeHeadZombie extends Zombie {
 
     public ConeHeadZombie(){
-
-
+        life = 16;
     }
 }
