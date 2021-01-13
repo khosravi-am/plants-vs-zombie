@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="440e9d3a-2660-4e2b-9798-7f92040d7073" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/model/Sun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/Sun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +112,7 @@
       <workItem from="1610341143021" duration="2269000" />
       <workItem from="1610477360024" duration="3119000" />
       <workItem from="1610538493448" duration="740000" />
-      <workItem from="1610539321118" duration="1921000" />
+      <workItem from="1610539321118" duration="2730000" />
     </task>
     <task id="LOCAL-00001" summary="Change name of &quot;Flower&quot; class to &quot;SunFlower&quot; class.">
       <created>1610340218400</created>
@@ -198,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610541133569</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Add Component package for plants and zombies and bullets.">
+      <created>1610541439179</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1610541439179</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,7 +238,8 @@
     <MESSAGE value="Implement Potato plant." />
     <MESSAGE value="Implement Zombie packages." />
     <MESSAGE value="MVC Programming." />
-    <option name="LAST_COMMIT_MESSAGE" value="MVC Programming." />
+    <MESSAGE value="Add Component package for plants and zombies and bullets." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Component package for plants and zombies and bullets." />
   </component>
   <component name="WindowStateProjectService">
     <state x="549" y="95" key="#com.intellij.ide.util.MemberChooser" timestamp="1610541202352">
@@ -252,10 +260,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="474" y="264" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1366.728@0.0.1366.728" timestamp="1610181000451" />
-    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2" timestamp="1610541402591">
+    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2" timestamp="1610541437629">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1610541402591" />
+    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1610541437629" />
     <state x="93" y="93" width="1374" height="648" key="DiffContextDialog" timestamp="1610344042093">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -297,10 +305,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1536.834@0.0.1536.834" timestamp="1610541422124" />
-    <state x="361" y="147" key="Vcs.Push.Dialog.v2" timestamp="1610541137979">
+    <state x="361" y="147" key="Vcs.Push.Dialog.v2" timestamp="1610541452298">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="147" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1610541137979" />
+    <state x="361" y="147" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1610541452298" />
     <state x="93" y="93" width="1350" height="648" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1610344091066">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
