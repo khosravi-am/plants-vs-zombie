@@ -32,7 +32,7 @@ public class Plants {
     /**
      * Image of plants.
      */
-    private Image image;
+    protected Image image;
 
     /**
      * Cost of each plants per sun

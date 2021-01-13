@@ -4,7 +4,10 @@
     <list default="true" id="440e9d3a-2660-4e2b-9798-7f92040d7073" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/khosro/plant/Plants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/plant/Plants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/plant/Potato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/plant/Potato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/khosro/zambia/BucketHeadZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/zambia/BucketHeadZombie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/khosro/zambia/ConeHeadZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/zambia/ConeHeadZombie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/khosro/zambia/NormZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/zambia/NormZombie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/khosro/zambia/Zambia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/zambia/Zombie.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +56,7 @@
       </branch-storage>
     </favorite-branches>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1mjSUWKVgtd92UwOqI3gsKlsRgJ" />
   <component name="ProjectLevelVcsManager">
@@ -67,7 +71,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="D:/final project/final" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../JPvZ3" />
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -106,7 +110,8 @@
       <workItem from="1610340531961" duration="486000" />
       <workItem from="1610341143021" duration="2269000" />
       <workItem from="1610477360024" duration="3119000" />
-      <workItem from="1610538493448" duration="294000" />
+      <workItem from="1610538493448" duration="740000" />
+      <workItem from="1610539321118" duration="970000" />
     </task>
     <task id="LOCAL-00001" summary="Change name of &quot;Flower&quot; class to &quot;SunFlower&quot; class.">
       <created>1610340218400</created>
@@ -171,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610478847623</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Implement Potato plant.">
+      <created>1610538841864</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1610538841864</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,7 +213,8 @@
     <MESSAGE value="Add producing method." />
     <MESSAGE value="Add fields." />
     <MESSAGE value="Implement Plants package." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement Plants package." />
+    <MESSAGE value="Implement Potato plant." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement Potato plant." />
   </component>
   <component name="WindowStateProjectService">
     <state x="549" y="95" key="#com.intellij.ide.util.MemberChooser" timestamp="1610477699239">
@@ -218,18 +231,19 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="474" y="264" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1366.728@0.0.1366.728" timestamp="1610181000451" />
-    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2" timestamp="1610478845077">
+    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2" timestamp="1610538840845">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1610478845077" />
+    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1610538840845" />
     <state x="93" y="93" width="1374" height="648" key="DiffContextDialog" timestamp="1610344042093">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="93" y="93" width="1374" height="648" key="DiffContextDialog/0.0.1536.834@0.0.1536.834" timestamp="1610344042093" />
-    <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1610204936125">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="521" y="137" key="FileChooserDialogImpl" timestamp="1610539240008">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1610204936125" />
+    <state x="521" y="137" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1610539240008" />
     <state x="349" y="153" key="IDE.errors.dialog" timestamp="1610342456943">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -242,14 +256,18 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="93" y="93" width="1350" height="648" key="ShowDiffWithBranchDialog/0.0.1536.834@0.0.1536.834" timestamp="1610344091066" />
-    <state x="361" y="147" key="Vcs.Push.Dialog.v2" timestamp="1610478854251">
+    <state x="361" y="147" key="Vcs.Push.Dialog.v2" timestamp="1610538860707">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="147" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1610478854251" />
+    <state x="361" y="147" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1610538860707" />
     <state x="93" y="93" width="1350" height="648" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1610344091066">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="93" y="93" width="1350" height="648" key="com.intellij.dvcs.ui.CompareBranchesDialog/0.0.1536.834@0.0.1536.834" timestamp="1610344091066" />
+    <state x="577" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1610538875344">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="577" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1610538875344" />
     <state x="557" y="49" key="git4idea.branch.GitSmartOperationDialog" timestamp="1610344043225">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -258,9 +276,13 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1610204832471" />
-    <state x="425" y="189" key="run.anything.popup" timestamp="1610478005284">
+    <state x="425" y="189" key="run.anything.popup" timestamp="1610539073886">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1610478005284" />
+    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1610539073886" />
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1610539577400">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1610539577400" />
   </component>
 </project>
