@@ -1,6 +1,5 @@
 # Plants-Vs-Zombies
 ## Details
-This is final project for AP course at 
 
 **Created by:
 [Khosravi](https://www.github.com/BhavyaC16) and [Haj Rezvan](https://github.com/hajrezvan)**
