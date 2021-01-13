@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="440e9d3a-2660-4e2b-9798-7f92040d7073" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +63,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -112,7 +112,7 @@
       <workItem from="1610341143021" duration="2269000" />
       <workItem from="1610477360024" duration="3119000" />
       <workItem from="1610538493448" duration="740000" />
-      <workItem from="1610539321118" duration="2730000" />
+      <workItem from="1610539321118" duration="3031000" />
     </task>
     <task id="LOCAL-00001" summary="Change name of &quot;Flower&quot; class to &quot;SunFlower&quot; class.">
       <created>1610340218400</created>
@@ -205,7 +205,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610541439179</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Change README.md file.">
+      <created>1610542092003</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1610542092003</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Change README.md file.">
+      <created>1610542189143</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1610542189143</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,7 +253,8 @@
     <MESSAGE value="Implement Zombie packages." />
     <MESSAGE value="MVC Programming." />
     <MESSAGE value="Add Component package for plants and zombies and bullets." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Component package for plants and zombies and bullets." />
+    <MESSAGE value="Change README.md file." />
+    <option name="LAST_COMMIT_MESSAGE" value="Change README.md file." />
   </component>
   <component name="WindowStateProjectService">
     <state x="549" y="95" key="#com.intellij.ide.util.MemberChooser" timestamp="1610541202352">
@@ -260,10 +275,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="474" y="264" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1366.728@0.0.1366.728" timestamp="1610181000451" />
-    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2" timestamp="1610542091284">
+    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2" timestamp="1610553558995">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1610542091284" />
+    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1610553558995" />
     <state x="93" y="93" width="1374" height="648" key="DiffContextDialog" timestamp="1610344042093">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -273,22 +288,22 @@
     </state>
     <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1610204936125" />
     <state x="521" y="137" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1610539240008" />
-    <state width="1493" height="205" key="GridCell.Tab.0.bottom" timestamp="1610540922853">
+    <state width="1493" height="205" key="GridCell.Tab.0.bottom" timestamp="1610542376411">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="205" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1610540922853" />
-    <state width="1493" height="205" key="GridCell.Tab.0.center" timestamp="1610540922853">
+    <state width="1493" height="205" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1610542376411" />
+    <state width="1493" height="205" key="GridCell.Tab.0.center" timestamp="1610542376411">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="205" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1610540922853" />
-    <state width="1493" height="205" key="GridCell.Tab.0.left" timestamp="1610540922853">
+    <state width="1493" height="205" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1610542376411" />
+    <state width="1493" height="205" key="GridCell.Tab.0.left" timestamp="1610542376411">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="205" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1610540922853" />
-    <state width="1493" height="205" key="GridCell.Tab.0.right" timestamp="1610540922853">
+    <state width="1493" height="205" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1610542376411" />
+    <state width="1493" height="205" key="GridCell.Tab.0.right" timestamp="1610542376411">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="205" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1610540922853" />
+    <state width="1493" height="205" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1610542376411" />
     <state x="349" y="153" key="IDE.errors.dialog" timestamp="1610342456943">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -305,10 +320,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1536.834@0.0.1536.834" timestamp="1610541422124" />
-    <state x="361" y="147" key="Vcs.Push.Dialog.v2" timestamp="1610542101223">
+    <state x="361" y="147" key="Vcs.Push.Dialog.v2" timestamp="1610542197399">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="147" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1610542101223" />
+    <state x="361" y="147" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1610542197399" />
     <state x="93" y="93" width="1350" height="648" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1610344091066">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
