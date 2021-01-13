@@ -1,7 +1,7 @@
-package khosro.plant;
+package khosro.model.plant;
 
-import khosro.Bullet.Bullet;
-import khosro.map.MapHome;
+import khosro.model.Bullet.Bullet;
+import khosro.model.map.MapHome;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

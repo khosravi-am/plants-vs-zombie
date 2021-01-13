@@ -1,4 +1,4 @@
-package khosro.map;
+package khosro.model.map;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

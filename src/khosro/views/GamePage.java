@@ -1,4 +1,4 @@
-package khosro.pages;
+package khosro.views;
 
 import khosro.map.MapRow;
 

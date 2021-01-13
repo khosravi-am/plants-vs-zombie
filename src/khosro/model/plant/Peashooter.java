@@ -1,43 +1,47 @@
-package khosro.plant;
+package khosro.model.plant;
 
-import khosro.Bullet.Bullet;
-import khosro.map.MapHome;
+import khosro.model.Bullet.Bullet;
+import khosro.model.Bullet.PeaBullet;
+import khosro.model.map.MapHome;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-public abstract class Pea extends Plants {
-    protected ArrayList<Bullet> bullets;
+public class Peashooter extends Pea {
 
     /**
      * @param bulletArr     Array of bullet that plant can shoot it. If plant can't shoot a bullet, it equal to null.
      * @param img           Image address.
      * @param image         Image of plants.
      * @param life          Each plants how many life time when zombies eat it.
+     * @param preparingTime The time each plants produce its product (sunflower produce a sun and shooters shoot a bullet)
      * @param locX          X location in visual map
      * @param locY          Y location in visual map
      * @param bornTime      Time has left a plants card refresh.
      * @param x             X location in map
      * @param y             Y location in map
      */
-    public Pea(ArrayList<Bullet> bulletArr,
-               BufferedImage img,
-               Image image,
-               int life,
-               MapHome locX,
-               MapHome locY,
-               long bornTime,
-               int x,
-               int y) {
+    public Peashooter(ArrayList<Bullet> bulletArr,
+                      BufferedImage img,
+                      Image image,
+                      int life,
+                      MapHome locX,
+                      MapHome locY,
+                      long bornTime,
+                      int x,
+                      int y) {
         super(bulletArr, img, image, life, locX, locY, bornTime, x, y);
-        bullets = new ArrayList<>();
-        preparingTime = 5;
+        cost = 100;
     }
 
     /**
      * Shoot the bullet to zombie.
      * Create a bullet and add its to array of bullet.
      */
-    public abstract void shoot();
+    @Override
+    public void shoot() {
+        Bullet bullet = new PeaBullet();
+        bulletArr.add(bullet);
+    }
 }

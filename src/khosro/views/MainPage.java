@@ -1,10 +1,10 @@
-package khosro.pages;
+package khosro.views;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class LoginPage extends JFrame implements MouseListener {
+public class MainPage extends JFrame implements MouseListener {
     /**
      * Invoked when the mouse button has been clicked (pressed
      * and released) on a component.

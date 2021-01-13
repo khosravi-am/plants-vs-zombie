@@ -1,7 +1,7 @@
-package khosro.plant;
+package khosro.model.plant;
 
-import khosro.Bullet.Bullet;
-import khosro.map.MapHome;
+import khosro.model.Bullet.Bullet;
+import khosro.model.map.MapHome;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -9,7 +9,6 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 /**
