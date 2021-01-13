@@ -3,8 +3,13 @@ package khosro.plant;
 import khosro.Bullet.Bullet;
 import khosro.map.MapHome;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 /**
@@ -101,6 +106,14 @@ public class Plants {
         this.x = x;
         this.y = y;
         live = true;
+
+        try {
+            img = ImageIO.read(new File(" input.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        image = new ImageIcon("input.gif").getImage();
     }
 
     public MapHome getLocX() {

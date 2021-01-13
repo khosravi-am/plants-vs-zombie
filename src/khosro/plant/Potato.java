@@ -30,7 +30,7 @@ public class Potato extends Plants {
                   int x,
                   int y) {
         super(bulletArr, img, image, life, locX, locY, bornTime, x, y);
-        cost = 50;
-        preparingTime = 10;
+        this.cost = 50;
+        this.preparingTime = 10;
     }
 }
