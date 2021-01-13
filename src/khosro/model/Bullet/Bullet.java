@@ -1,4 +1,4 @@
-package khosro.Bullet;
+package khosro.model.Bullet;
 
 import java.awt.*;
 

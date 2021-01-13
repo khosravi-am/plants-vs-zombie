@@ -1,4 +1,4 @@
-package khosro.map;
+package khosro.model.map;
 
 public class MapHome {
 }

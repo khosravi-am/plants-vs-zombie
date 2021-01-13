@@ -1,6 +1,6 @@
-package khosro;
+package khosro.model;
 
-import khosro.map.MapHome;
+import khosro.model.map.MapHome;
 
 import java.awt.*;
 
