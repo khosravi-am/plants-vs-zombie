@@ -1,7 +1,7 @@
-package khosro.model.plant;
+package khosro.model.component.plant;
 
-import khosro.model.Bullet.Bullet;
-import khosro.model.Bullet.PeaBullet;
+import khosro.model.component.Bullet.Bullet;
+import khosro.model.component.Bullet.PeaBullet;
 import khosro.model.map.MapHome;
 
 import java.awt.*;
@@ -15,7 +15,6 @@ public class Peashooter extends Pea {
      * @param img           Image address.
      * @param image         Image of plants.
      * @param life          Each plants how many life time when zombies eat it.
-     * @param preparingTime The time each plants produce its product (sunflower produce a sun and shooters shoot a bullet)
      * @param locX          X location in visual map
      * @param locY          Y location in visual map
      * @param bornTime      Time has left a plants card refresh.

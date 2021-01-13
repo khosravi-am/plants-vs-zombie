@@ -1,23 +1,13 @@
-package khosro.model.plant;
+package khosro.model.component.plant;
 
-import khosro.model.Bullet.Bullet;
+import khosro.model.component.Bullet.Bullet;
 import khosro.model.map.MapHome;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-public class Cherry extends Plants {
-
-    /**
-     * Time has left to explode the cherry.
-     */
-    private final int explodedTime = 5;
-
-    /**
-     * Domain of explosion
-     */
-    private final int explodeDomains = 1;
+public class Potato extends Plants {
 
     /**
      * @param bulletArr Array of bullet that plant can shoot it. If plant can't shoot a bullet, it equal to null.
@@ -30,7 +20,7 @@ public class Cherry extends Plants {
      * @param x         X location in map
      * @param y         Y location in map
      */
-    public Cherry(ArrayList<Bullet> bulletArr,
+    public Potato(ArrayList<Bullet> bulletArr,
                   BufferedImage img,
                   Image image,
                   int life,
@@ -40,11 +30,7 @@ public class Cherry extends Plants {
                   int x,
                   int y) {
         super(bulletArr, img, image, life, locX, locY, bornTime, x, y);
-        cost = 150;
-        preparingTime = 7;
-    }
-
-    public void explode() {
-
+        this.cost = 50;
+        this.preparingTime = 10;
     }
 }

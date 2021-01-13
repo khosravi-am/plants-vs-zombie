@@ -2,33 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="440e9d3a-2660-4e2b-9798-7f92040d7073" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/khosro/controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/Bullet/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/Bullet/Bullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/Bullet/PeaBullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/Bullet/PeaBullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/Bullet/SnowBullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/Bullet/SnowBullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/Sun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/Sun.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/map/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/map/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/map/MapHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/map/MapHome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/map/MapRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/map/MapRow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/pages/GamePage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/pages/LoadPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/pages/LoginPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/pages/MainPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/pages/RankPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/pages/SettingPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/plant/Cherry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/plant/Cherry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/plant/Pea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/plant/Pea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/plant/Peashooter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/plant/Peashooter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/plant/Plants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/plant/Plants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/plant/Potato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/plant/Potato.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/plant/SnowPea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/plant/SnowPea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/plant/SunFlower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/plant/SunFlower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/zambia/BucketHeadZombie.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/zambia/ConeHeadZombie.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/zambia/NormZombie.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/zambia/Zombie.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/khosro/model/Sun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/Sun.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +112,7 @@
       <workItem from="1610341143021" duration="2269000" />
       <workItem from="1610477360024" duration="3119000" />
       <workItem from="1610538493448" duration="740000" />
-      <workItem from="1610539321118" duration="1577000" />
+      <workItem from="1610539321118" duration="1921000" />
     </task>
     <task id="LOCAL-00001" summary="Change name of &quot;Flower&quot; class to &quot;SunFlower&quot; class.">
       <created>1610340218400</created>
@@ -216,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610540373515</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="MVC Programming.">
+      <created>1610541133569</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1610541133569</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,15 +230,16 @@
     <MESSAGE value="Implement Plants package." />
     <MESSAGE value="Implement Potato plant." />
     <MESSAGE value="Implement Zombie packages." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement Zombie packages." />
+    <MESSAGE value="MVC Programming." />
+    <option name="LAST_COMMIT_MESSAGE" value="MVC Programming." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="95" key="#com.intellij.ide.util.MemberChooser" timestamp="1610477699239">
+    <state x="549" y="95" key="#com.intellij.ide.util.MemberChooser" timestamp="1610541202352">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="488" y="83" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1610180655431" />
     <state x="488" y="88" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1610172961104" />
-    <state x="549" y="95" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1610477699239" />
+    <state x="549" y="95" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1610541202352" />
     <state x="618" y="307" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1610338608967">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -269,10 +252,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="474" y="264" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1366.728@0.0.1366.728" timestamp="1610181000451" />
-    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2" timestamp="1610541052855">
+    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2" timestamp="1610541402591">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1610541052855" />
+    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1610541402591" />
     <state x="93" y="93" width="1374" height="648" key="DiffContextDialog" timestamp="1610344042093">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -310,10 +293,14 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="93" y="93" width="1350" height="648" key="ShowDiffWithBranchDialog/0.0.1536.834@0.0.1536.834" timestamp="1610344091066" />
-    <state x="361" y="147" key="Vcs.Push.Dialog.v2" timestamp="1610540383172">
+    <state width="498" height="446" key="SwitcherDM" timestamp="1610541422124">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="147" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1610540383172" />
+    <state width="498" height="446" key="SwitcherDM/0.0.1536.834@0.0.1536.834" timestamp="1610541422124" />
+    <state x="361" y="147" key="Vcs.Push.Dialog.v2" timestamp="1610541137979">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="361" y="147" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1610541137979" />
     <state x="93" y="93" width="1350" height="648" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1610344091066">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
