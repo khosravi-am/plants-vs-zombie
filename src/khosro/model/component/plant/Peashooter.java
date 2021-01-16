@@ -40,7 +40,7 @@ public class Peashooter extends Pea {
      */
     @Override
     public void shoot() {
-        Bullet bullet = new PeaBullet();
-        bulletArr.add(bullet);
+//        Bullet bullet = new PeaBullet("");
+//        bulletArr.add(bullet);
     }
 }
