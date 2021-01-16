@@ -40,7 +40,7 @@ public class SnowPea extends Pea {
      */
     @Override
     public void shoot() {
-        Bullet bullet = new SnowBullet();
-        bulletArr.add(bullet);
+/*        Bullet bullet = new SnowBullet();
+        bulletArr.add(bullet);*/
     }
 }
