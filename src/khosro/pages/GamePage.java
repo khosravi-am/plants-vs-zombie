@@ -10,25 +10,15 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static java.lang.Thread.sleep;
+
 public class GamePage extends JFrame {
-    private Image background, bullet, sun, cardCherry, cardFreeze, cardPea, cardFlower, cardPotato, shovel, level;
+    private Image background, bullet, sun, cardCherry, cardFreeze, cardPea, cardFlower, cardPotato, shovel, level, menuBar, menu;
     private int sunNum = 0, time;
     private Image icon;
-    private ArrayList<Image> car;
-    private ArrayList<MapRow> mapRow;
     private Boolean cardTime;
     private ArrayList<Image> plant;
-    private BufferStrategy bufferStrategy;
-    Graphics2D g2d;
-
-
-    public void initBufferStrategy() {
-        // Triple-buffering
-        createBufferStrategy(3);
-        bufferStrategy = getBufferStrategy();
-
-    }
-
+    private Long start;
 
     public GamePage() {
         super("Plants vs. Zombie");
@@ -44,7 +34,7 @@ public class GamePage extends JFrame {
         super.setLayout(null);
         super.setResizable(false);
         super.setVisible(true);
-        initBufferStrategy();
+        start=System.currentTimeMillis();
 //        JLabel l=new JLabel(new ImageIcon("./images/sunflower.gif"));
 //        l.setLayout(null);
 //        l.setBounds(50,120,90,80);
@@ -55,55 +45,68 @@ public class GamePage extends JFrame {
     }
 
 
-    public void paint2() {
-        // Render single frame
-        do {
-            // The following loop ensures that the contents of the drawing buffer
-            // are consistent in case the underlying surface was recreated
-            do {
-                // Get a new graphics context every time through the loop
-                // to make sure the strategy is validated
-                g2d = (Graphics2D) bufferStrategy.getDrawGraphics();
-                try {
-                    g2d.drawImage(background, 0, 30, 1080, 735, null);
-                    g2d.drawImage(mapRow.get(0).getMapHomes().get(0).getImage(), 15, 90, 146, 157, null);
-                    g2d.drawImage(cardFlower, 35, 109, 80, 70, this);
+    public void update(Graphics g) {
+        System.out.println("hello");
+        Dimension size = getSize();
+        if (cardFlower == null || cardFlower.getWidth(this) != size.width || cardFlower.getHeight(this) != size.height) {
+            cardFlower = createImage(size.width, size.height);
+        }
+        if (cardFlower != null) {
+            // paint to double buffer
+            Graphics g2 = cardFlower.getGraphics();
+            paint(g2);
+            g2.dispose();
+            // copy double buffer to screen
+            g.drawImage(cardFlower, 0, 0, null);
+        } else {
+            // couldn't create double buffer, just paint to screen
+            paint(g);
+        }
+    }
 
-                } finally {
-                    // Dispose the graphics
-                    g2d.dispose();
-                }
-                // Repeat the rendering if the drawing buffer contents were restored
-            } while (bufferStrategy.contentsRestored());
-
-            // Display the buffer
-            bufferStrategy.show();
-            // Tell the system to do the drawing NOW;
-            // otherwise it can take a few extra ms and will feel jerky!
-            Toolkit.getDefaultToolkit().sync();
-
-            // Repeat the rendering if the drawing buffer was lost
-        } while (bufferStrategy.contentsLost());
+    public void paintBack(Graphics2D g2d) {
+        g2d.drawImage(background, 0, 30, 1080, 735, null);
     }
 
 
-    private void setRows(Graphics2D g2d) {
+    public void setRows(Graphics2D g2d, ArrayList<MapRow> mapRow) {
         for (int i = 0; i < 5; i++)
-            for (int j = 0; j < 9; j++)
-                g2d.drawImage(mapRow.get(i).getMapHomes().get(j).getImage(), mapRow.get(i).getMapHomes().get(j).getX1(), mapRow.get(i).getY1(), null);
+            for (int j = 0; j < 9; j++) {
+                g2d.drawImage(mapRow.get(i).getMapHomes().get(j).getImage(), mapRow.get(i).getMapHomes().get(j).getX(), mapRow.get(i).getY(), mapRow.get(i).getMapHomes().get(j).getWidth(), mapRow.get(i).getHeight(), null);
+                g2d.drawImage(mapRow.get(i).getImage(), -30, mapRow.get(i).getY() + 10, 90, mapRow.get(i).getHeight() - 60, null);
+            }
     }
 
-    public void setMapRow(ArrayList<MapRow> mapRow) {
-        this.mapRow = mapRow;
+    public void paintMenu(Graphics2D g2d) {
+        g2d.drawImage(menuBar, 20, 31, 695, 110, null);
+        g2d.drawImage(shovel, 615, 36, 90, 75, null);
+        g2d.drawImage(menu, 925, 30, 140, 40, null);
+        g2d.drawImage(level, 800, 735, 220, 30, null);
+        g2d.drawImage(cardFlower, 130, 40, 70, 85, null);
+        g2d.drawImage(cardPea, 210, 40, 70, 85, null);
+        g2d.drawImage(cardFreeze, 290, 40, 70, 85, null);
+        g2d.drawImage(cardCherry, 370, 40, 70, 85, null);
+        g2d.drawImage(cardPotato, 450, 40, 70, 85, null);
+        g2d.setColor(Color.GREEN);
+        g2d.setFont(g2d.getFont().deriveFont(30.0f));
+        g2d.drawString("menu", 955, 50);
+        g2d.setColor(Color.BLACK);
+        g2d.drawString(String.valueOf(sunNum), 65, 130);
 
+    }
+
+    public void delayCardFlower(Graphics2D g2d,int i) {
+        g2d.setColor(new Color(0f,0f,0f,.5f ));
+        g2d.fillRect(130, 40, 70, i);
+    }
+
+    public void paintLevel(Graphics2D g2d,int i){
+        g2d.setColor(new Color(0f,1f,0f,1f ));
+        g2d.fillRect(810, 750, i, 5);
     }
 
     public Image getBullet() {
         return bullet;
-    }
-
-    public ArrayList<Image> getCar() {
-        return car;
     }
 
     public Image getSun() {
@@ -128,10 +131,6 @@ public class GamePage extends JFrame {
 
     public void setBullet(Image bullet) {
         this.bullet = bullet;
-    }
-
-    public void setCar(ArrayList<Image> car) {
-        this.car = car;
     }
 
     public void setShovel(Image shovel) {
@@ -162,33 +161,35 @@ public class GamePage extends JFrame {
         this.level = level;
     }
 
-    public void paint3() {
-        do {
-            // The following loop ensures that the contents of the drawing buffer
-            // are consistent in case the underlying surface was recreated
-            do {
-                // Get a new graphics context every time through the loop
-                // to make sure the strategy is validated
-                g2d = (Graphics2D) bufferStrategy.getDrawGraphics();
-                try {
-                    //g2d.drawImage(background, 0, 30, 1080, 735, null);
-                    //g2d.drawImage(mapRow.get(0).getMapHomes().get(0).getImage(), 15, 90, 146, 157, null);
-                    g2d.drawImage(cardFlower, 135, 209, 80, 70, this);
+    public void setMenu(Image menu) {
+        this.menu = menu;
+    }
 
-                } finally {
-                    // Dispose the graphics
-                    g2d.dispose();
-                }
-                // Repeat the rendering if the drawing buffer contents were restored
-            } while (bufferStrategy.contentsRestored());
+    public void setCardPotato(Image cardPotato) {
+        this.cardPotato = cardPotato;
+    }
 
-            // Display the buffer
-            bufferStrategy.show();
-            // Tell the system to do the drawing NOW;
-            // otherwise it can take a few extra ms and will feel jerky!
-            Toolkit.getDefaultToolkit().sync();
+    public void setMenuBar(Image menuBar) {
+        this.menuBar = menuBar;
+    }
 
-            // Repeat the rendering if the drawing buffer was lost
-        } while (bufferStrategy.contentsLost());
+    public void delayCardCherry(Graphics2D g2d, int cc) {
+        g2d.setColor(new Color(0f,0f,0f,.5f ));
+        g2d.fillRect(370, 40, 70, cc);
+    }
+
+    public void delayCardPea(Graphics2D g2d, int cp) {
+        g2d.setColor(new Color(0f,0f,0f,.5f ));
+        g2d.fillRect(210, 40, 70, cp);
+    }
+
+    public void delayCardFreeze(Graphics2D g2d, int f) {
+        g2d.setColor(new Color(0f,0f,0f,.5f ));
+        g2d.fillRect(290, 40, 70, f);
+    }
+
+    public void delayCardPotato(Graphics2D g2d, int p) {
+        g2d.setColor(new Color(0f,0f,0f,.5f ));
+        g2d.fillRect(450, 40, 70, p);
     }
 }
