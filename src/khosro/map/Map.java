@@ -24,7 +24,7 @@ public class Map {
             cardCherry = new ImageIcon("./images/card_cherrybomb.png");
             cardFreeze = new ImageIcon("./images/card_freezepeashooter.png");
             cardPea = new ImageIcon("./images/card_peashooter.png");
-            cardFlower = new ImageIcon("./images/sunflower.gif");
+            cardFlower = new ImageIcon("./images/card_sunflower.png");
             cardPotato = new ImageIcon("./images/card_wallnut.png");
             shovel = new ImageIcon("./images/shovel.png");
             level = new ImageIcon("./images/level.png");
@@ -45,15 +45,15 @@ public class Map {
         return background;
     }
 
-    public Icon getShovel() {
+    public ImageIcon getShovel() {
         return shovel;
     }
 
-    public Icon getCardCherry() {
+    public ImageIcon getCardCherry() {
         return cardCherry;
     }
 
-    public Icon getCardFreeze() {
+    public ImageIcon getCardFreeze() {
         return cardFreeze;
     }
 
@@ -61,15 +61,15 @@ public class Map {
         return cardFlower;
     }
 
-    public Icon getCardPea() {
+    public ImageIcon getCardPea() {
         return cardPea;
     }
 
-    public Icon getCardPotato() {
+    public ImageIcon getCardPotato() {
         return cardPotato;
     }
 
-    public Icon getLevel() {
+    public ImageIcon getLevel() {
         return level;
     }
 
@@ -81,11 +81,11 @@ public class Map {
         this.sunNum = sunNum;
     }
 
-    public Icon getMenu() {
+    public ImageIcon getMenu() {
         return menu;
     }
 
-    public Icon getMenuBar() {
+    public ImageIcon getMenuBar() {
         return menuBar;
     }
 }
