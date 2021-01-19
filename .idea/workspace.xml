@@ -1,13 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="440e9d3a-2660-4e2b-9798-7f92040d7073" name="Default Changelist" comment="Project updated!!">
-      <change afterPath="$PROJECT_DIR$/src/khosro/model/component/zombie/BucketHeadZombie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/khosro/model/component/zombie/ConeHeadZombie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/khosro/model/component/zombie/NormZombie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/khosro/model/component/zombie/Zombie.java" afterDir="false" />
+    <list default="true" id="440e9d3a-2660-4e2b-9798-7f92040d7073" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/debug.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Cards/card_cherrybomb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Cards/card_freezepeashooter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Cards/card_peashooter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Cards/card_sunflower.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Cards/card_wallnut.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Counter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/beetroot.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/beetroot_dying.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/bucketheadzombie.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/burntZombie.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/click_to_start.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/coneheadzombie.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/freezepeashooter.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/gameOver.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/jalapenoFire.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/lawn_mower.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/lawnmowerActivated.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/newCherryBomb.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/normalzombie.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/pea_shooter.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/pea_shooter_dying.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/peashooter.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/repeater.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/sun.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/sun_flower.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/sun_flower_dying.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/sunflower.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/walnut_dead.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/walnut_full_life.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/walnut_half_life (1).gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/walnut_half_life.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/zombie_football.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/zombie_football_dying.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/zombie_normal.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Gifs/zombie_normal_dying.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Lawn_Mower.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Pea1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/Potatomine.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/StrongZombie.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/active_beetroot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/active_peashooter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/active_sunflower.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/active_walnut.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/backyard.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/beetbullet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/first_screen.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/freezepea.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/gameOver.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/huge_wave_of_zombies_text.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/inactive_beetroot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/inactive_peashooter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/inactive_sunflower.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/inactive_walnut.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/mainBG.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/normalZombie.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/pea.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/shovel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/sun.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/zombie1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/images/zombie2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/sounds/atebrains.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/sounds/background.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/sounds/chomp.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/sounds/game_end.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/sounds/lamborghini.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/sounds/menu.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/sounds/shoot.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/sounds/ting.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/sounds/zombies_coming.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/model/component/plant/Plants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/component/plant/Plants.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +143,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="D:/final project/final" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -185,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610478847623</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Project updated!!">
+      <created>1611074715337</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1611074715337</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,6 +275,26 @@
             <State>
               <option name="COLUMN_ORDER" />
             </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="LocalJavadBranch" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/javad" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
@@ -234,10 +330,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="474" y="264" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1366.728@0.0.1366.728" timestamp="1610181000451" />
-    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2" timestamp="1611074562643">
+    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2" timestamp="1611074714197">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1611074562643" />
+    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1611074714197" />
     <state x="93" y="93" width="1374" height="648" key="DiffContextDialog" timestamp="1610344042093">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -274,18 +370,18 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="473" y="125" width="793" height="583" key="MultipleFileMergeDialog/0.0.1536.834@0.0.1536.834" timestamp="1611046914308" />
-    <state x="555" y="50" key="SettingsEditor" timestamp="1610340616331">
+    <state x="93" y="0" key="SettingsEditor" timestamp="1611080068073">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="555" y="50" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1610340616331" />
+    <state x="93" y="0" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1611080068073" />
     <state x="93" y="93" width="1350" height="648" key="ShowDiffWithBranchDialog" timestamp="1610344091066">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="93" y="93" width="1350" height="648" key="ShowDiffWithBranchDialog/0.0.1536.834@0.0.1536.834" timestamp="1610344091066" />
-    <state x="361" y="147" key="Vcs.Push.Dialog.v2" timestamp="1610478854251">
+    <state x="361" y="147" key="Vcs.Push.Dialog.v2" timestamp="1611074736400">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="147" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1610478854251" />
+    <state x="361" y="147" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1611074736400" />
     <state x="93" y="93" width="1350" height="648" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1611074288038">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
