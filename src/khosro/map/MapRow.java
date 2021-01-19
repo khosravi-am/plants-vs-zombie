@@ -1,5 +1,7 @@
 package khosro.map;
 
+import khosro.model.map.MapHome;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.File;

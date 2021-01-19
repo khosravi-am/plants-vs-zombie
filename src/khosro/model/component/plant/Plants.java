@@ -67,6 +67,8 @@ public class Plants {
      * X location in map
      */
     protected int x;
+    protected int weigh;
+    protected int high;
 
     /**
      * Y location in map
@@ -75,16 +77,18 @@ public class Plants {
 
     protected boolean live;
 
+    protected boolean use;
+
     /**
-     * @param bulletArr     Array of bullet that plant can shoot it. If plant can't shoot a bullet, it equal to null.
-     * @param img           Image address.
-     * @param image         Image of plants.
-     * @param life          Each plants how many life time when zombies eat it.
-     * @param locX          X location in visual map
-     * @param locY          Y location in visual map
-     * @param bornTime      Time has left a plants card refresh.
-     * @param x             X location in map
-     * @param y             Y location in map
+     * @param bulletArr Array of bullet that plant can shoot it. If plant can't shoot a bullet, it equal to null.
+     * @param img       Image address.
+     * @param image     Image of plants.
+     * @param life      Each plants how many life time when zombies eat it.
+     * @param locX      X location in visual map
+     * @param locY      Y location in visual map
+     * @param bornTime  Time has left a plants card refresh.
+     * @param x         X location in map
+     * @param y         Y location in map
      */
     public Plants(ArrayList<Bullet> bulletArr,
                   BufferedImage img,
@@ -139,8 +143,8 @@ public class Plants {
         this.live = live;
     }
 
+    //TODO remove plant form screen.
     public void dead() {
-        //TODO remove plant form screen.
         live = false;
     }
 }

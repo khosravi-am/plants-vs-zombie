@@ -1,11 +1,8 @@
 package khosro;
 
-import khosro.handler.GameHandler;
+import khosro.controller.GameHandler;
 import khosro.map.Map;
-import khosro.pages.GamePage;
-
-import java.awt.*;
-import java.lang.reflect.InvocationTargetException;
+import khosro.views.GamePage;
 
 public class Main {
     public static final int FPS = 20;
@@ -21,7 +18,6 @@ public class Main {
     private static long start5;
     private static long start6;
     private static long start7;
-
 
     public static void main(String[] args) {
         Map map = new Map();
@@ -72,6 +68,7 @@ public class Main {
                             Thread.sleep(delay);
 
                     } catch (InterruptedException ex) {
+                        ex.printStackTrace();
                     }
                 }
             }

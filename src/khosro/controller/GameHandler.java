@@ -1,12 +1,10 @@
-package khosro.handler;
+package khosro.controller;
 
 import khosro.map.Map;
-import khosro.pages.GamePage;
+import khosro.views.GamePage;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
-import java.util.ArrayList;
 
 public class GameHandler {
     public boolean gameOver;
@@ -46,7 +44,6 @@ public class GameHandler {
      * Game rendering with triple-buffering using BufferStrategy.
      *
      * @
-     * @param i
      * @param cf
      * @param cc
      * @param cp
