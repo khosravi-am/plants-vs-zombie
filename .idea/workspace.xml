@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="440e9d3a-2660-4e2b-9798-7f92040d7073" name="Default Changelist" comment="">
+    <list default="true" id="440e9d3a-2660-4e2b-9798-7f92040d7073" name="Default Changelist" comment="Project updated!!">
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/component/zombie/BucketHeadZombie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/component/zombie/ConeHeadZombie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/component/zombie/NormZombie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/khosro/model/component/zombie/Zombie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/controller/GameController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/handler/GameHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/controller/GameHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/map/MapRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/map/MapRow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/khosro/model/component/plant/Plants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/component/plant/Plants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/views/LoadPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/views/LoadPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +55,11 @@
         </map>
       </branch-storage>
     </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="javad" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1mjSUWKVgtd92UwOqI3gsKlsRgJ" />
@@ -68,6 +72,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -90,6 +95,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -195,6 +205,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Change name of &quot;Flower&quot; class to &quot;SunFlower&quot; class." />
     <MESSAGE value="Add fields of Plants" />
     <MESSAGE value="Add fields and constructor to Plants class." />
@@ -205,15 +216,16 @@
     <MESSAGE value="Add producing method." />
     <MESSAGE value="Add fields." />
     <MESSAGE value="Implement Plants package." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement Plants package." />
+    <MESSAGE value="Project updated!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project updated!!" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="95" key="#com.intellij.ide.util.MemberChooser" timestamp="1610477699239">
+    <state x="549" y="95" key="#com.intellij.ide.util.MemberChooser" timestamp="1611074539201">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="488" y="83" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1610180655431" />
     <state x="488" y="88" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1610172961104" />
-    <state x="549" y="95" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1610477699239" />
+    <state x="549" y="95" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1611074539201" />
     <state x="618" y="307" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1610338608967">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -222,10 +234,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="474" y="264" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1366.728@0.0.1366.728" timestamp="1610181000451" />
-    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2" timestamp="1611047354786">
+    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2" timestamp="1611074562643">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1611047354786" />
+    <state x="391" y="0" width="769" height="834" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1611074562643" />
     <state x="93" y="93" width="1374" height="648" key="DiffContextDialog" timestamp="1610344042093">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -274,10 +286,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="361" y="147" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1610478854251" />
-    <state x="93" y="93" width="1350" height="648" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1610344091066">
+    <state x="93" y="93" width="1350" height="648" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1611074288038">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="93" y="93" width="1350" height="648" key="com.intellij.dvcs.ui.CompareBranchesDialog/0.0.1536.834@0.0.1536.834" timestamp="1610344091066" />
+    <state x="93" y="93" width="1350" height="648" key="com.intellij.dvcs.ui.CompareBranchesDialog/0.0.1536.834@0.0.1536.834" timestamp="1611074288038" />
     <state x="557" y="49" key="git4idea.branch.GitSmartOperationDialog" timestamp="1610344043225">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

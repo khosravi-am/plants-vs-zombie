@@ -119,6 +119,9 @@ public class Plants {
         image = new ImageIcon("input.gif").getImage();
     }
 
+    public Plants() {
+    }
+
     public MapHome getLocX() {
         return locX;
     }
@@ -137,6 +140,102 @@ public class Plants {
 
     public boolean isLive() {
         return live;
+    }
+
+    public ArrayList<Bullet> getBulletArr() {
+        return bulletArr;
+    }
+
+    public void setBulletArr(ArrayList<Bullet> bulletArr) {
+        this.bulletArr = bulletArr;
+    }
+
+    public BufferedImage getImg() {
+        return img;
+    }
+
+    public void setImg(BufferedImage img) {
+        this.img = img;
+    }
+
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
+    }
+
+    public int getCost() {
+        return cost;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
+    }
+
+    public int getLife() {
+        return life;
+    }
+
+    public void setLife(int life) {
+        this.life = life;
+    }
+
+    public int getPreparingTime() {
+        return preparingTime;
+    }
+
+    public void setPreparingTime(int preparingTime) {
+        this.preparingTime = preparingTime;
+    }
+
+    public void setLocX(MapHome locX) {
+        this.locX = locX;
+    }
+
+    public void setLocY(MapHome locY) {
+        this.locY = locY;
+    }
+
+    public long getBornTime() {
+        return bornTime;
+    }
+
+    public void setBornTime(long bornTime) {
+        this.bornTime = bornTime;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getWeigh() {
+        return weigh;
+    }
+
+    public void setWeigh(int weigh) {
+        this.weigh = weigh;
+    }
+
+    public int getHigh() {
+        return high;
+    }
+
+    public void setHigh(int high) {
+        this.high = high;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public boolean isUse() {
+        return use;
+    }
+
+    public void setUse(boolean use) {
+        this.use = use;
     }
 
     public void setLive(boolean live) {
