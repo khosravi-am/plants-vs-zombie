@@ -5,7 +5,16 @@ import java.util.ArrayList;
 
 public class Map {
     private ArrayList<MapRow> mapRows;
-    private ImageIcon background, cardCherry, cardFreeze, cardPea, cardFlower, cardPotato, shovel, level, menuBar, menu;
+    private ImageIcon background;
+    private ImageIcon cardCherry;
+    private ImageIcon cardFreeze;
+    private ImageIcon cardPea;
+    private ImageIcon cardFlower;
+    private ImageIcon cardPotato;
+    private ImageIcon shovel;
+    private ImageIcon level;
+    private ImageIcon menuBar;
+    private ImageIcon menu;
     private int sunNum;
 
     public Map() {
@@ -20,16 +29,16 @@ public class Map {
     }
 
     public void setImage() {
-            background = new ImageIcon("./images/bg.png");
-            cardCherry = new ImageIcon("./images/card_cherrybomb.png");
-            cardFreeze = new ImageIcon("./images/card_freezepeashooter.png");
-            cardPea = new ImageIcon("./images/card_peashooter.png");
-            cardFlower = new ImageIcon("./images/card_sunflower.png");
-            cardPotato = new ImageIcon("./images/card_wallnut.png");
-            shovel = new ImageIcon("./images/shovel.png");
-            level = new ImageIcon("./images/level.png");
-            menuBar = new ImageIcon("./images/menu_bar.png");
-            menu = new ImageIcon("./images/menu.png");
+        background = new ImageIcon("./src/khosro/model/res/images/Cards/bg.png");
+        cardCherry = new ImageIcon("./src/khosro/model/res/images/Cards/card_cherrybomb.png");
+        cardFreeze = new ImageIcon("./src/khosro/model/res/images/Cards/card_freezepeashooter.png");
+        cardPea = new ImageIcon("./src/khosro/model/res/images/Cards/card_peashooter.png");
+        cardFlower = new ImageIcon("./src/khosro/model/res/images/Cards/card_sunflower.png");
+        cardPotato = new ImageIcon("./src/khosro/model/res/images/Cards/card_wallnut.png");
+        shovel = new ImageIcon("./src/khosro/model/res/images/Cards/shovel.png");
+        level = new ImageIcon("./src/khosro/model/res/images/Cards/level.png");
+        menuBar = new ImageIcon("./src/khosro/model/res/images/Cards/menu_bar.png");
+        menu = new ImageIcon("./src/khosro/model/res/images/Cards/menu.png");
 
     }
 
