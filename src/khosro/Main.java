@@ -1,21 +1,26 @@
 package khosro;
 
 import khosro.controller.GameController;
-import khosro.model.component.plant.SunFlower;
 import khosro.model.map.Map;
-import khosro.views.GamePage;
+import khosro.views.*;
 
 import java.awt.*;
 import java.lang.reflect.InvocationTargetException;
 
 public class Main {
-    public static final int FPS = 50;
+    public static final int FPS = 90;
     private static int cf = 85;
     private static int cc = 85;
     private static int cp = 85;
     private static int f = 85;
     private static int p = 85;
     private static int l = 0;
+    public static Boolean card1=false;
+    public static Boolean card2=false;
+    public static Boolean card3=false;
+    public static Boolean card4=false;
+    public static Boolean card5=false;
+    public static Boolean mainMenu=true;
     private static long start2;
     private static long start3;
     private static long start4;
@@ -25,9 +30,20 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Map map = new Map();
-        GamePage gamePage = new GamePage();
-        GameController gameHandler = new GameController(map, gamePage);
+
+        MainPage mainPage=new MainPage();
+        while (!mainPage.getRunGame()) {
+            try {
+                long start = System.currentTimeMillis();
+                mainPage.render();
+                long delay = (1000 / FPS) - (System.currentTimeMillis() - start);
+                if (delay > 0)
+                    Thread.sleep(delay);
+
+            } catch (InterruptedException ex) {
+            }
+        }
+
 
         // Initialize the global thread-pool
         // ThreadPool.init();
@@ -50,6 +66,10 @@ public class Main {
              */
             @Override
             public void run() {
+                Map map = new Map();
+                GamePage gamePage = new GamePage();
+                GameController gameHandler = new GameController(map, gamePage);
+
                 boolean gameOver = false;
                 start2 = System.currentTimeMillis();
                 start3 = System.currentTimeMillis();
@@ -66,6 +86,7 @@ public class Main {
                         gameHandler.update();
                         //canvas.render(state);
                         gameOver = gameHandler.gameOver;
+                        check2(gameHandler);
                         check();
                         level();
                         long delay = (1000 / FPS) - (System.currentTimeMillis() - start);
@@ -77,8 +98,27 @@ public class Main {
                 }
             }
         };
+        if (mainPage.getRunGame()) {
+            mainPage.dispose();
+            t.start();
+        }
 
-        t.start();
+    }
+
+
+    private static void check2(GameController gameHandler) {
+        if (gameHandler.getSunflower().size()>0&&gameHandler.getSunflower().get(gameHandler.getSunflower().size()-1).isUse()) {
+            card1 = false;
+            if (cf==0)
+                start2 = System.currentTimeMillis();
+            cf=85;
+        }
+        if (gameHandler.getPea().size()>0&&gameHandler.getPea().get(gameHandler.getPea().size()-1).isUse()) {
+            card2 = false;
+            if (cp==0)
+                start3 = System.currentTimeMillis();
+            cp=85;
+        }
 
     }
 
@@ -91,14 +131,12 @@ public class Main {
     }
 
     private static void check() {
-        if (System.currentTimeMillis() - start2 > 100) {
-
+        if (System.currentTimeMillis() - start2 > 100&&!card1) {
             cf--;
             start2 = System.currentTimeMillis();
-
         }
         if (cf == 0)
-            cf = 85;
+            card1=true;
         if (System.currentTimeMillis() - start3 > 130) {
             cp--;
             start3 = System.currentTimeMillis();
