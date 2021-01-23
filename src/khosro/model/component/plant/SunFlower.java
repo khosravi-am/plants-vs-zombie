@@ -4,6 +4,7 @@ import khosro.model.component.Bullet.Bullet;
 import khosro.model.component.Sun;
 import khosro.model.map.MapHome;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ public class SunFlower extends Plants {
      */
     public SunFlower(ArrayList<Bullet> bulletArr,
                      BufferedImage img,
-                     Image image,
+                     ImageIcon image,
                      int life,
                      MapHome locX,
                      MapHome locY,
@@ -42,6 +43,11 @@ public class SunFlower extends Plants {
         cost = 100;
         preparingTime = 5;
     }
+
+    public SunFlower(){
+        setImage(new ImageIcon("./src/khosro/model/res/sunflower.png"));
+        setGif(new ImageIcon("./src/khosro/model/res/sunflower.gif"));
+     }
 
     /**
      * Produce a sun
