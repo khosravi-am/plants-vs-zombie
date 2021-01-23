@@ -49,22 +49,7 @@ public class GamePage extends JFrame  {
 
 
     public void update(Graphics g) {
-        System.out.println("hello");
-        Dimension size = getSize();
-        if (cardFlower == null || cardFlower.getWidth(this) != size.width || cardFlower.getHeight(this) != size.height) {
-            cardFlower = createImage(size.width, size.height);
-        }
-        if (cardFlower != null) {
-            // paint to double buffer
-            Graphics g2 = cardFlower.getGraphics();
-            paint(g2);
-            g2.dispose();
-            // copy double buffer to screen
-            g.drawImage(cardFlower, 0, 0, null);
-        } else {
-            // couldn't create double buffer, just paint to screen
-            paint(g);
-        }
+
     }
 
     public void paintBack(Graphics2D g2d) {
@@ -77,6 +62,7 @@ public class GamePage extends JFrame  {
             for (int j = 0; j < 9; j++) {
                 g2d.drawImage(mapRow.get(i).getMapHomes().get(j).getImage(), mapRow.get(i).getMapHomes().get(j).getX(), mapRow.get(i).getY(), mapRow.get(i).getMapHomes().get(j).getWidth(), mapRow.get(i).getHeight(), null);
                 g2d.drawImage(mapRow.get(i).getImage(), -30, mapRow.get(i).getY() + 10, 90, mapRow.get(i).getHeight() - 60, null);
+
             }
     }
 
@@ -194,6 +180,17 @@ public class GamePage extends JFrame  {
     public void delayCardPotato(Graphics2D g2d, int p) {
         g2d.setColor(new Color(0f,0f,0f,.5f ));
         g2d.fillRect(450, 40, 70, p);
+    }
+
+    public void paintMouseImg(Graphics2D g2d, Image image, int mouseX, int mouseY) {
+        g2d.drawImage(image,mouseX,mouseY,80,100,null);
+    }
+
+    public void paintHomeImage(Graphics2D g2d, Image image, int x, int y) {
+        if (y>115)
+            g2d.drawImage(image,x+20,y+10,80,95,null);
+        else
+            g2d.drawImage(image,x+20,y+30,80,95,null);
     }
 
     /**
