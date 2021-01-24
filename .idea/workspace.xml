@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="86cfef64-b1d5-4294-a8cf-645030ce6431" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/khosro/model/res/AddressStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/khosro/views/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/model/component/plant/Cherry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/component/plant/Cherry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/model/component/plant/Pea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/component/plant/Pea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/model/component/plant/Peashooter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/component/plant/Peashooter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/model/component/plant/Plants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/component/plant/Plants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/model/component/plant/Potato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/component/plant/Potato.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/model/component/plant/SnowPea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/component/plant/SnowPea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/model/res/MainBackground.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/res/MainBackground.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/views/GamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/views/GamePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/khosro/views/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/views/MainPage.java" afterDir="false" />
-    </list>
+    <list default="true" id="86cfef64-b1d5-4294-a8cf-645030ce6431" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,12 +69,24 @@
       <workItem from="1611467078081" duration="4471000" />
       <workItem from="1611471790195" duration="1358000" />
       <workItem from="1611474043823" duration="80000" />
-      <workItem from="1611502481964" duration="4120000" />
+      <workItem from="1611502481964" duration="4348000" />
     </task>
+    <task id="LOCAL-00001" summary="Project Update.">
+      <created>1611506790795</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1611506790795</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Project Update." />
+    <option name="LAST_COMMIT_MESSAGE" value="Project Update." />
   </component>
   <component name="WindowStateProjectService">
     <state x="574" y="115" key="#com.intellij.ide.util.MemberChooser" timestamp="1611469485271">
@@ -108,42 +101,46 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="421" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.834@0.0.1536.834" timestamp="1611469318082" />
-    <state width="1493" height="205" key="GridCell.Tab.0.bottom" timestamp="1611506673725">
+    <state x="383" y="0" key="CommitChangelistDialog2" timestamp="1611506789401">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="383" y="0" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1611506789401" />
+    <state width="1493" height="255" key="GridCell.Tab.0.bottom" timestamp="1611506839421">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1323" height="192" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1610544731884" />
-    <state width="1493" height="205" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1611506673725" />
-    <state width="1493" height="205" key="GridCell.Tab.0.center" timestamp="1611506673724">
+    <state width="1493" height="255" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1611506839421" />
+    <state width="1493" height="255" key="GridCell.Tab.0.center" timestamp="1611506839420">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1323" height="192" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1610544731884" />
-    <state width="1493" height="205" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1611506673724" />
-    <state width="1493" height="205" key="GridCell.Tab.0.left" timestamp="1611506673724">
+    <state width="1493" height="255" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1611506839420" />
+    <state width="1493" height="255" key="GridCell.Tab.0.left" timestamp="1611506839419">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1323" height="192" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1610544731884" />
-    <state width="1493" height="205" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1611506673724" />
-    <state width="1493" height="205" key="GridCell.Tab.0.right" timestamp="1611506673724">
+    <state width="1493" height="255" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1611506839419" />
+    <state width="1493" height="255" key="GridCell.Tab.0.right" timestamp="1611506839421">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1323" height="192" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1610544731884" />
-    <state width="1493" height="205" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1611506673724" />
-    <state width="1493" height="255" key="GridCell.Tab.1.bottom" timestamp="1611505343936">
+    <state width="1493" height="255" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1611506839421" />
+    <state width="1493" height="255" key="GridCell.Tab.1.bottom" timestamp="1611506839422">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="255" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1611505343936" />
-    <state width="1493" height="255" key="GridCell.Tab.1.center" timestamp="1611505343936">
+    <state width="1493" height="255" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1611506839422" />
+    <state width="1493" height="255" key="GridCell.Tab.1.center" timestamp="1611506839421">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="255" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1611505343936" />
-    <state width="1493" height="255" key="GridCell.Tab.1.left" timestamp="1611505343936">
+    <state width="1493" height="255" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1611506839421" />
+    <state width="1493" height="255" key="GridCell.Tab.1.left" timestamp="1611506839421">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="255" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1611505343936" />
-    <state width="1493" height="255" key="GridCell.Tab.1.right" timestamp="1611505343936">
+    <state width="1493" height="255" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1611506839421" />
+    <state width="1493" height="255" key="GridCell.Tab.1.right" timestamp="1611506839422">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="255" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1611505343936" />
+    <state width="1493" height="255" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1611506839422" />
     <state x="147" y="72" key="MergeDialog" timestamp="1611467195122">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -156,6 +153,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="584" y="352" key="ReplaceDuplicatesPrompt/0.0.1536.834@0.0.1536.834" timestamp="1611504540897" />
+    <state x="361" y="147" key="Vcs.Push.Dialog.v2" timestamp="1611506821184">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="361" y="147" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1611506821184" />
     <state x="577" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611467135920">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
