@@ -139,6 +139,7 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
             System.out.println("Load Game clicked");
         } else if (mainMenu.isNewGameMoved(e)) {
             System.out.println("New Game clicked");
+            runGame = true;
         }
     }
 
