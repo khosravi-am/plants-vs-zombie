@@ -113,11 +113,11 @@ public class Plants {
 
         try {
             img = ImageIO.read(new File(" input.png"));
+            image = new ImageIcon("input.gif");
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        image = new ImageIcon("input.gif");
     }
 
     public Plants() {

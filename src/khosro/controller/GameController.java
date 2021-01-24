@@ -105,8 +105,7 @@ public class GameController implements MouseListener, MouseMotionListener {
                                 checkAndInsert(map.getMapRows().get(i).getMapHomes().get(j));
 
 
-                } catch (NullPointerException e) {
-
+                } catch (NullPointerException ignored) {
                 } finally {
                     // Dispose the graphics
                     g2d.dispose();
@@ -225,7 +224,10 @@ public class GameController implements MouseListener, MouseMotionListener {
     private void checkHome(MouseEvent e) {
         for (int i = 0; i < 5; i++)
             for (int j = 0; j < 9; j++)
-                if (e.getX() > map.getMapRows().get(i).getMapHomes().get(j).getX() && e.getY() > map.getMapRows().get(i).getMapHomes().get(j).getY() && e.getX() < map.getMapRows().get(i).getMapHomes().get(j).getX2() && e.getY() < map.getMapRows().get(i).getMapHomes().get(j).getY2()) {
+                if (e.getX() > map.getMapRows().get(i).getMapHomes().get(j).getX() &&
+                        e.getY() > map.getMapRows().get(i).getMapHomes().get(j).getY() &&
+                        e.getX() < map.getMapRows().get(i).getMapHomes().get(j).getX2() &&
+                        e.getY() < map.getMapRows().get(i).getMapHomes().get(j).getY2()) {
                     if (!map.getMapRows().get(i).getMapHomes().get(j).isPor()) {
                         map.getMapRows().get(i).getMapHomes().get(j).setSunflower(sunflower.get(sunflower.size() - 1).isUse());
                         sunflower.get(sunflower.size() - 1).setUse(false);

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 import static java.lang.Thread.sleep;
 
-public class GamePage extends JFrame  {
+public class GamePage extends JFrame {
     private Image background, bullet, sun, cardCherry, cardFreeze, cardPea, cardFlower, cardPotato, shovel, level, menuBar, menu;
     private int sunNum = 0, time;
     private Image icon;
@@ -37,7 +37,7 @@ public class GamePage extends JFrame  {
         super.setLayout(null);
         super.setResizable(false);
         super.setVisible(true);
-        start=System.currentTimeMillis();
+        start = System.currentTimeMillis();
 //        JLabel l=new JLabel(new ImageIcon("./images/sunflower.gif"));
 //        l.setLayout(null);
 //        l.setBounds(50,120,90,80);
@@ -84,13 +84,13 @@ public class GamePage extends JFrame  {
 
     }
 
-    public void delayCardFlower(Graphics2D g2d,int i) {
-        g2d.setColor(new Color(0f,0f,0f,.5f ));
+    public void delayCardFlower(Graphics2D g2d, int i) {
+        g2d.setColor(new Color(0f, 0f, 0f, .5f));
         g2d.fillRect(130, 40, 70, i);
     }
 
-    public void paintLevel(Graphics2D g2d,int i){
-        g2d.setColor(new Color(0f,1f,0f,1f ));
+    public void paintLevel(Graphics2D g2d, int i) {
+        g2d.setColor(new Color(0f, 1f, 0f, 1f));
         g2d.fillRect(812, 750, i, 5);
     }
 
@@ -163,34 +163,34 @@ public class GamePage extends JFrame  {
     }
 
     public void delayCardCherry(Graphics2D g2d, int cc) {
-        g2d.setColor(new Color(0f,0f,0f,.5f ));
+        g2d.setColor(new Color(0f, 0f, 0f, .5f));
         g2d.fillRect(370, 40, 70, cc);
     }
 
     public void delayCardPea(Graphics2D g2d, int cp) {
-        g2d.setColor(new Color(0f,0f,0f,.5f ));
+        g2d.setColor(new Color(0f, 0f, 0f, .5f));
         g2d.fillRect(210, 40, 70, cp);
     }
 
     public void delayCardFreeze(Graphics2D g2d, int f) {
-        g2d.setColor(new Color(0f,0f,0f,.5f ));
+        g2d.setColor(new Color(0f, 0f, 0f, .5f));
         g2d.fillRect(290, 40, 70, f);
     }
 
     public void delayCardPotato(Graphics2D g2d, int p) {
-        g2d.setColor(new Color(0f,0f,0f,.5f ));
+        g2d.setColor(new Color(0f, 0f, 0f, .5f));
         g2d.fillRect(450, 40, 70, p);
     }
 
     public void paintMouseImg(Graphics2D g2d, Image image, int mouseX, int mouseY) {
-        g2d.drawImage(image,mouseX,mouseY,80,100,null);
+        g2d.drawImage(image, mouseX, mouseY, 80, 100, null);
     }
 
     public void paintHomeImage(Graphics2D g2d, Image image, int x, int y) {
-        if (y>115)
-            g2d.drawImage(image,x+20,y+10,80,95,null);
+        if (y > 115)
+            g2d.drawImage(image, x + 20, y + 10, 80, 95, null);
         else
-            g2d.drawImage(image,x+20,y+30,80,95,null);
+            g2d.drawImage(image, x + 20, y + 30, 80, 95, null);
     }
 
     /**

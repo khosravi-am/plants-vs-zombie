@@ -3,6 +3,7 @@ package khosro.model.component.plant;
 import khosro.model.component.Bullet.Bullet;
 import khosro.model.map.MapHome;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public abstract class Pea extends Plants {
      */
     public Pea(ArrayList<Bullet> bulletArr,
                BufferedImage img,
-               Image image,
+               ImageIcon image,
                int life,
                MapHome locX,
                MapHome locY,

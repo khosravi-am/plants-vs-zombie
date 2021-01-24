@@ -1,13 +1,13 @@
 /*** In The Name of Allah ***/
 package khosro.views;
 
-import java.awt.Graphics2D;
-import java.awt.Toolkit;
+import khosro.model.res.AddressStore;
+
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferStrategy;
-import java.util.ArrayList;
 import javax.swing.*;
 
 /**
@@ -15,8 +15,8 @@ import javax.swing.*;
  * This example uses the modern BufferStrategy approach for double-buffering,
  * actually it performs triple-buffering!
  * For more information on BufferStrategy check out:
- *    http://docs.oracle.com/javase/tutorial/extra/fullscreen/bufferstrategy.html
- *    http://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferStrategy.html
+ * http://docs.oracle.com/javase/tutorial/extra/fullscreen/bufferstrategy.html
+ * http://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferStrategy.html
  *
  * @author Seyed Mohammad Ghaffarian
  */
@@ -25,13 +25,20 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
     //uncomment all /*...*/ in the class for using Tank icon instead of a simple circle
     /*private BufferedImage image;*/
     private ImageIcon icon;
-    private Boolean login,setting,rank,runGame,loadGame;
+    private Image mainImage;
+    private Boolean login;
+    private Boolean setting;
+    private Boolean rank;
+    private Boolean runGame;
+    private Boolean loadGame;
     private Graphics2D graphics;
     private BufferStrategy bufferStrategy;
 
+    MainMenu mainMenu;
+
     public MainPage() {
         super("Plants vs. Zombie");
-        icon=new ImageIcon("./src/khosro/model/res/icon.png");
+        icon = new ImageIcon(AddressStore.GAMEICONE);
         super.setIconImage(icon.getImage());
         super.setSize(1080, 770);
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -39,19 +46,25 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
         super.setLayout(null);
         super.setResizable(false);
         super.setVisible(true);
+        mainMenu = new MainMenu(this);
+        addMouseListener(this);
+        addMouseMotionListener(this);
+
+        login = false;
+        setting = false;
+        rank = false;
+        runGame = false;
+        loadGame = false;
 
         initBufferStrategy();
-
-	/*	try{
-			image = ImageIO.read(new File("Icon.png"));
-		}
-		catch(IOException e){
-			System.out.println(e);
-		}*/
+        mainImage = new ImageIcon(AddressStore.MAINPAGE).getImage();
+        graphics = (Graphics2D) bufferStrategy.getDrawGraphics();
+        mainMenu.setGraphics2D(graphics);
     }
+
     /**
      * This must be called once after the JFrame is shown:
-     *    frame.setVisible(true);
+     * frame.setVisible(true);
      * and before any rendering is started.
      */
     public void initBufferStrategy() {
@@ -74,7 +87,7 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
                 // to make sure the strategy is validated
                 graphics = (Graphics2D) bufferStrategy.getDrawGraphics();
                 try {
-                    doRendering(graphics);
+                    doRendering();
                 } finally {
                     // Dispose the graphics
                     graphics.dispose();
@@ -95,10 +108,18 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
     /**
      * Rendering all game elements based on the game state.
      */
-    private void doRendering(Graphics2D g2d) {
-
+    private void doRendering() {
+        mainMenu.drawStrings();
     }
 
+    public Image getMainImage() {
+        return mainImage;
+    }
+
+    @Override
+    public Graphics2D getGraphics() {
+        return graphics;
+    }
 
     public Boolean getRunGame() {
         return runGame;
@@ -112,7 +133,13 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
      */
     @Override
     public void mouseClicked(MouseEvent e) {
+        System.out.println("(" + e.getX() + " , " + e.getY() + ")");
 
+        if (mainMenu.isLoadGameMoved(e)) {
+            System.out.println("Load Game clicked");
+        } else if (mainMenu.isNewGameMoved(e)) {
+            System.out.println("New Game clicked");
+        }
     }
 
     /**
@@ -181,6 +208,19 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
      */
     @Override
     public void mouseMoved(MouseEvent e) {
+        if (graphics != null) {
+            if (mainMenu.isNewGameMoved(e)) {
+                mainMenu.changeColor(Color.WHITE);
+            } else if (mainMenu.isLoadGameMoved(e)) {
+                mainMenu.changeColor(Color.WHITE);
+            } else if (mainMenu.isScoreBoardGameMoved(e)) {
 
+            } else if (mainMenu.isSettingGameMoved(e)) {
+
+            } else {
+                mainMenu.changeColor(Color.black);
+            }
+            doRendering();
+        }
     }
 }
