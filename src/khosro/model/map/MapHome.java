@@ -1,15 +1,20 @@
 package khosro.model.map;
 
+import khosro.model.component.plant.Plants;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Node;
+
 public class MapHome {
     private Image image;
     private int count, x,y,x2,y2, width, height;
-    private Boolean click=false,sunflower=false,pea=false,freeze=false,potato=false,cherry=false;
+    private Boolean click=false,sunflower=false,pea=false,freeze=false,potato=false,cherry=false,por=false;
+    private Plants plant;
     public MapHome(int count,int y,int height) {
         this.count = count;
         this.y=y;
@@ -84,9 +89,11 @@ public class MapHome {
     }
 
     public Boolean isPor(){
-        if (sunflower||pea||potato||cherry||freeze)
-            return true;
-        return false;
+        return por;
+    }
+
+    public Plants getPlant() {
+        return plant;
     }
 
     public void setClick(Boolean click) {
@@ -177,4 +184,18 @@ public class MapHome {
         this.image = image;
     }
 
+    public void setPlant(Plants plan) {
+
+        if (plan!=null && plan.getClass().getSimpleName().equals("Cherry"))
+            plan.setGif(new ImageIcon("./src/khosro/model/res/cherry.gif"));
+        plant=plan;
+        setPor();
+    }
+
+    private void setPor() {
+        if (this.plant == null)
+            por = false;
+        else
+            por = true;
+    }
 }
