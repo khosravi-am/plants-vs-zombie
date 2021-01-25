@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * SuperClass of all other plants.
  * Keep fields of plants.
  */
-public class Plants {
+public class Plants implements Cloneable {
 
     /**
      * Array of bullet that plant can shoot it.
@@ -52,12 +52,6 @@ public class Plants {
     /**
      * X location in visual map
      */
-    protected MapHome locX;
-
-    /**
-     * Y location in visual map
-     */
-    protected MapHome locY;
 
     /**
      * Time has left a plants card refresh.
@@ -79,14 +73,13 @@ public class Plants {
     protected boolean live;
 
     protected boolean use=false;
+    protected boolean use2=false;
 
     /**
      * @param bulletArr Array of bullet that plant can shoot it. If plant can't shoot a bullet, it equal to null.
      * @param img       Image address.
      * @param image     Image of plants.
      * @param life      Each plants how many life time when zombies eat it.
-     * @param locX      X location in visual map
-     * @param locY      Y location in visual map
      * @param bornTime  Time has left a plants card refresh.
      * @param x         X location in map
      * @param y         Y location in map
@@ -95,8 +88,6 @@ public class Plants {
                   BufferedImage img,
                   ImageIcon image,
                   int life,
-                  MapHome locX,
-                  MapHome locY,
                   long bornTime,
                   int x,
                   int y) {
@@ -104,8 +95,6 @@ public class Plants {
         this.img = img;
         this.image = image;
         this.life = life;
-        this.locX = locX;
-        this.locY = locY;
         this.bornTime = bornTime;
         this.x = x;
         this.y = y;
@@ -113,24 +102,19 @@ public class Plants {
 
         try {
             img = ImageIO.read(new File(" input.png"));
-            image = new ImageIcon("input.gif");
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+        image = new ImageIcon("input.gif");
     }
 
     public Plants() {
+        live=true;
 
     }
 
-    public MapHome getLocX() {
-        return locX;
-    }
 
-    public MapHome getLocY() {
-        return locY;
-    }
 
     public int getX() {
         return x;
@@ -164,6 +148,14 @@ public class Plants {
         return image;
     }
 
+    public boolean getUse2() {
+        return use2;
+    }
+
+    public void setUse2(boolean use2) {
+        this.use2 = use2;
+    }
+
     public void setImage(ImageIcon image) {
         this.image = image;
     }
@@ -192,13 +184,6 @@ public class Plants {
         this.preparingTime = preparingTime;
     }
 
-    public void setLocX(MapHome locX) {
-        this.locX = locX;
-    }
-
-    public void setLocY(MapHome locY) {
-        this.locY = locY;
-    }
 
     public long getBornTime() {
         return bornTime;
@@ -255,5 +240,17 @@ public class Plants {
     //TODO remove plant form screen.
     public void dead() {
         live = false;
+    }
+
+    /**
+     *
+     * @return
+     * @throws CloneNotSupportedException
+     *
+     */
+
+    @Override
+    public Object clone()throws CloneNotSupportedException{
+        return super.clone();
     }
 }
