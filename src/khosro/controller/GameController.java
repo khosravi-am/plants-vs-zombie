@@ -16,9 +16,10 @@ import java.util.ArrayList;
 
 public class GameController implements MouseListener, MouseMotionListener {
     public boolean gameOver;
-    private ArrayList<Plants> pea, sunflower, freeze, potato, cherry;
-    private Boolean clickPea = false, clickSunflower = false, clickFreeze = false, clickPotato = false, clickCherry = false;
+
+    private Boolean clickPea = false, clickSunflower = false, clickFreeze = false, clickPotato = false, clickCherry = false,cherry=false,cherry1=false;
     private Map map;
+    private Plants plant;
     private Graphics2D g2d;
     private GamePage gamePage;
     Long start;
@@ -33,11 +34,6 @@ public class GameController implements MouseListener, MouseMotionListener {
         start = System.currentTimeMillis();
         gamePage.addMouseListener(this);
         gamePage.addMouseMotionListener(this);
-        pea = new ArrayList<>();
-        sunflower = new ArrayList<>();
-        freeze = new ArrayList<>();
-        potato = new ArrayList<>();
-        cherry = new ArrayList<>();
         setImage();
         initBufferStrategy();
         //(addMouseListener();
@@ -93,19 +89,41 @@ public class GameController implements MouseListener, MouseMotionListener {
                     gamePage.delayCardFreeze(g2d, f);
                     gamePage.delayCardPotato(g2d, p);
                     gamePage.paintLevel(g2d, l);
-                    if (clickSunflower)
-                        paintFlower(new SunFlower());
+                    if (clickSunflower) {
+                        paintPlants(new SunFlower());
+                        clickSunflower = false;
+                    }
+                    if (clickPea) {
+                        paintPlants(new Peashooter());
+                        clickPea = false;
+                    }
+                    if (clickFreeze){
+                        paintPlants(new SnowPea());
+                        clickFreeze=false;
+                    }
+                    if (clickCherry){
+                        paintPlants(new Cherry());
+                        clickCherry=false;
+                    }
+                    if (clickPotato){
+                        paintPlants(new Potato());
+                        clickPotato=false;
+                    }
 
-                    if (sunflower.size() > 0 && sunflower.get(sunflower.size() - 1).isUse())
-                        gamePage.paintMouseImg(g2d, sunflower.get(sunflower.size() - 1).getImage().getImage(), mouseX - 50, mouseY - 80);
+                    if (plant != null && plant.isUse())
+                        gamePage.paintMouseImg(g2d, plant.getImage().getImage(), mouseX - 50, mouseY - 80);
 
                     for (int i = 0; i < 5; i++)
                         for (int j = 0; j < 9; j++)
-                            if (map.getMapRows().get(i).getMapHomes().get(j).getSunflower())
+                            if (map.getMapRows().get(i).getMapHomes().get(j).isPor())
                                 checkAndInsert(map.getMapRows().get(i).getMapHomes().get(j));
 
 
-                } catch (NullPointerException ignored) {
+
+
+
+                } catch (NullPointerException e) {
+
                 } finally {
                     // Dispose the graphics
                     g2d.dispose();
@@ -123,44 +141,14 @@ public class GameController implements MouseListener, MouseMotionListener {
         } while (bufferStrategy.contentsLost());
     }
 
-    private void paintFlower(SunFlower sunFlower) {
-        clickSunflower = false;
-        sunFlower.setUse(true);
-        sunflower.add(sunFlower);
-        gamePage.paintMouseImg(g2d, sunFlower.getImage().getImage(), mouseX - 50, mouseY - 80);
-
+    private void paintPlants(Plants plant) {
+        plant.setUse(true);
+        this.plant = plant;
+        gamePage.paintMouseImg(g2d, plant.getImage().getImage(), mouseX - 50, mouseY - 80);
     }
 
-    private void paintPea(Peashooter peashooter) {
-        clickPea = false;
-        peashooter.setUse(true);
-        pea.add(peashooter);
-        gamePage.paintMouseImg(g2d, peashooter.getImage().getImage(), mouseX - 50, mouseY - 80);
-
-    }
-
-    private void paintFreeze(SnowPea snowPea) {
-        clickFreeze = false;
-        snowPea.setUse(true);
-        freeze.add(snowPea);
-        gamePage.paintMouseImg(g2d, snowPea.getImage().getImage(), mouseX - 50, mouseY - 80);
-
-    }
-
-    private void paintCherry(Cherry cherry) {
-        clickCherry= false;
-        cherry.setUse(true);
-        this.cherry.add(cherry);
-        gamePage.paintMouseImg(g2d, cherry.getImage().getImage(), mouseX - 50, mouseY - 80);
-
-    }
-
-    private void paintPotato(Potato potato) {
-        clickSunflower = false;
-        potato.setUse(true);
-        this.potato.add(potato);
-        gamePage.paintMouseImg(g2d, potato.getImage().getImage(), mouseX - 50, mouseY - 80);
-
+    public void setPlant(Plants plant) {
+        this.plant = plant;
     }
 
     private void setImage() {
@@ -178,7 +166,23 @@ public class GameController implements MouseListener, MouseMotionListener {
     }
 
     private void checkAndInsert(MapHome mapHome) {
-        gamePage.paintHomeImage(g2d, sunflower.get(sunflower.size() - 1).getGif().getImage(), mapHome.getX(), mapHome.getY());
+        if (!mapHome.getPlant().isLive()){
+            if (mapHome.getPlant().getClass().getSimpleName().equals("Cherry"))
+                cherry=false;
+            mapHome.setPlant(null);
+            return;
+        }
+        if (mapHome.getPlant().getClass().getSimpleName().equals("Cherry")) {
+            gamePage.paintHomeImage(g2d, mapHome.getPlant().getGif().getImage(), mapHome.getX() - 130, mapHome.getY() - 130, 350, 350);
+            if (!cherry) {
+                mapHome.getPlant().setBornTime(System.currentTimeMillis());
+                ((Cherry) mapHome.getPlant()).explode();
+                cherry=true;
+            }
+
+        }
+        else gamePage.paintHomeImage(g2d, mapHome.getPlant().getGif().getImage(), mapHome.getX(), mapHome.getY());
+
 
     }
 
@@ -205,7 +209,6 @@ public class GameController implements MouseListener, MouseMotionListener {
      */
     @Override
     public void mousePressed(MouseEvent e) {
-        //System.out.println("x:"+e.getX()+" y:"+e.getY());
         if (e.getX() > 132 && e.getY() > 40 && e.getX() < 196 && e.getY() < 125 && Main.card1)
             clickSunflower = true;
         if (e.getX() > 210 && e.getY() > 40 && e.getX() < 275 && e.getY() < 125 && Main.card2)
@@ -224,13 +227,12 @@ public class GameController implements MouseListener, MouseMotionListener {
     private void checkHome(MouseEvent e) {
         for (int i = 0; i < 5; i++)
             for (int j = 0; j < 9; j++)
-                if (e.getX() > map.getMapRows().get(i).getMapHomes().get(j).getX() &&
-                        e.getY() > map.getMapRows().get(i).getMapHomes().get(j).getY() &&
-                        e.getX() < map.getMapRows().get(i).getMapHomes().get(j).getX2() &&
-                        e.getY() < map.getMapRows().get(i).getMapHomes().get(j).getY2()) {
+                if (e.getX() > map.getMapRows().get(i).getMapHomes().get(j).getX() && e.getY() > map.getMapRows().get(i).getMapHomes().get(j).getY() && e.getX() < map.getMapRows().get(i).getMapHomes().get(j).getX2() && e.getY() < map.getMapRows().get(i).getMapHomes().get(j).getY2()) {
                     if (!map.getMapRows().get(i).getMapHomes().get(j).isPor()) {
-                        map.getMapRows().get(i).getMapHomes().get(j).setSunflower(sunflower.get(sunflower.size() - 1).isUse());
-                        sunflower.get(sunflower.size() - 1).setUse(false);
+                        if (plant.isUse()) {
+                            plant.setUse(false);
+                            map.getMapRows().get(i).getMapHomes().get(j).setPlant(plant);
+                        }
                     }
                     break;
                 }
@@ -240,12 +242,9 @@ public class GameController implements MouseListener, MouseMotionListener {
         return clickSunflower;
     }
 
-    public ArrayList<Plants> getSunflower() {
-        return sunflower;
-    }
 
-    public ArrayList<Plants> getPea() {
-        return pea;
+    public Plants getPlant() {
+        return plant;
     }
 
     /**
