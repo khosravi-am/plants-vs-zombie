@@ -38,12 +38,6 @@ public class GamePage extends JFrame {
         super.setResizable(false);
         super.setVisible(true);
         start = System.currentTimeMillis();
-//        JLabel l=new JLabel(new ImageIcon("./images/sunflower.gif"));
-//        l.setLayout(null);
-//        l.setBounds(50,120,90,80);
-//        setOpacity(1);
-//        add(l);
-
 
     }
 
@@ -191,6 +185,13 @@ public class GamePage extends JFrame {
             g2d.drawImage(image, x + 20, y + 10, 80, 95, null);
         else
             g2d.drawImage(image, x + 20, y + 30, 80, 95, null);
+    }
+
+    public void paintHomeImage(Graphics2D g2d, Image image, int x, int y,int width,int height) {
+        if (y > 115)
+            g2d.drawImage(image, x + 20, y + 10, width, height, null);
+        else
+            g2d.drawImage(image, x + 20, y + 30, width, height, null);
     }
 
     /**
