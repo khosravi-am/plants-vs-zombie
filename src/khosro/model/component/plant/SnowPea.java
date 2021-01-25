@@ -1,15 +1,13 @@
 package khosro.model.component.plant;
 
 import khosro.model.component.Bullet.Bullet;
-import khosro.model.component.Bullet.SnowBullet;
 import khosro.model.map.MapHome;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-public class SnowPea extends Pea {
+public class SnowPea extends Plants {
 
     /**
      * @param bulletArr Array of bullet that plant can shoot it. If plant can't shoot a bullet, it equal to null.
@@ -31,15 +29,19 @@ public class SnowPea extends Pea {
                    long bornTime,
                    int x,
                    int y) {
-        super(bulletArr, img, image, life, locX, locY, bornTime, x, y);
+        super(bulletArr, img, image, life, bornTime, x, y);
         cost = 175;
+    }
+
+    public SnowPea(){
+        setImage(new ImageIcon("./src/khosro/model/res/icePea.png"));
+        setGif(new ImageIcon("./src/khosro/model/res/SnowPea.gif"));
     }
 
     /**
      * Shoot the bullet to zombie.
      * Create a bullet and add its to array of bullet.
      */
-    @Override
     public void shoot() {
 /*        Bullet bullet = new SnowBullet();
         bulletArr.add(bullet);*/
