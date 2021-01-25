@@ -31,7 +31,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        MainPage mainPage = new MainPage();
+        MainPage mainPage=new MainPage();
         while (!mainPage.getRunGame()) {
             try {
                 long start = System.currentTimeMillis();
@@ -40,7 +40,7 @@ public class Main {
                 if (delay > 0)
                     Thread.sleep(delay);
 
-            } catch (InterruptedException ignored) {
+            } catch (InterruptedException ex) {
             }
         }
 
@@ -107,27 +107,55 @@ public class Main {
 
 
     private static void check2(GameController gameHandler) {
-        if (gameHandler.getSunflower().size() > 0 &&
-                gameHandler.getSunflower().get(gameHandler.getSunflower().size() - 1).isUse()) {
-            card1 = false;
-            if (cf == 0)
-                start2 = System.currentTimeMillis();
-            cf = 85;
-        }
-        if (gameHandler.getPea().size() > 0 &&
-                gameHandler.getPea().get(gameHandler.getPea().size() - 1).isUse()) {
-            card2 = false;
-            if (cp == 0)
-                start3 = System.currentTimeMillis();
-            cp = 85;
+        try {
+
+
+            if (!gameHandler.getPlant().isUse() && gameHandler.getPlant().getClass().getSimpleName().equals("SunFlower") && card1) {
+                card1 = false;
+                if (cf == 0)
+                    start2 = System.currentTimeMillis();
+                cf = 85;
+                gameHandler.setPlant(null);
+            }
+            if (!gameHandler.getPlant().isUse() && gameHandler.getPlant().getClass().getSimpleName().equals("Peashooter") && card2) {
+                card2 = false;
+                if (cp == 0)
+                    start3 = System.currentTimeMillis();
+                cp = 85;
+                gameHandler.setPlant(null);
+            }
+            if (!gameHandler.getPlant().isUse() && gameHandler.getPlant().getClass().getSimpleName().equals("SnowPea") && card3) {
+                card3 = false;
+                if (f == 0)
+                    start4 = System.currentTimeMillis();
+                f = 85;
+                gameHandler.setPlant(null);
+            }
+            if (!gameHandler.getPlant().isUse() && gameHandler.getPlant().getClass().getSimpleName().equals("Cherry") && card4) {
+                card4 = false;
+                if (cc == 0)
+                    start5 = System.currentTimeMillis();
+                cc = 85;
+                gameHandler.setPlant(null);
+            }
+            if (!gameHandler.getPlant().isUse() && gameHandler.getPlant().getClass().getSimpleName().equals("Potato") && card5) {
+                card5 = false;
+                if (p == 0)
+                    start6 = System.currentTimeMillis();
+                p = 85;
+                gameHandler.setPlant(null);
+            }
+        }catch (NullPointerException e){
+
         }
 
     }
 
     private static void level() {
-        if (System.currentTimeMillis() - start7 > 1000 && l < 205) {
+        if (System.currentTimeMillis() - start7 > 4000 && l < 200) {
             l++;
             start7 = System.currentTimeMillis();
+            System.out.println(l);
         }
 
     }
@@ -136,36 +164,37 @@ public class Main {
         if (System.currentTimeMillis() - start2 > 100 && !card1) {
             cf--;
             start2 = System.currentTimeMillis();
+
         }
         if (cf == 0)
             card1 = true;
-        if (System.currentTimeMillis() - start3 > 130) {
+        if (System.currentTimeMillis() - start3 > 150 && !card2) {
             cp--;
             start3 = System.currentTimeMillis();
 
         }
         if (cp == 0)
-            cp = 85;
-        if (System.currentTimeMillis() - start4 > 350) {
+            card2 = true;
+        if (System.currentTimeMillis() - start4 > 350 && !card4) {
             cc--;
             start4 = System.currentTimeMillis();
 
         }
         if (cc == 0)
-            cc = 85;
-        if (System.currentTimeMillis() - start5 > 280) {
+            card4=true;
+        if (System.currentTimeMillis() - start5 > 280 && !card5) {
             p--;
             start5 = System.currentTimeMillis();
 
         }
         if (p == 0)
-            p = 85;
-        if (System.currentTimeMillis() - start6 > 200) {
+            card5=true;
+        if (System.currentTimeMillis() - start6 > 200 && !card3) {
             f--;
             start6 = System.currentTimeMillis();
 
         }
         if (f == 0)
-            f = 85;
+            card3=true;
     }
 }
