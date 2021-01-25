@@ -30,8 +30,13 @@ public class Potato extends Plants {
                   long bornTime,
                   int x,
                   int y) {
-        super(bulletArr, img, image, life, locX, locY, bornTime, x, y);
+        super(bulletArr, img, image, life, bornTime, x, y);
         this.cost = 50;
         this.preparingTime = 10;
+    }
+
+    public Potato(){
+        setImage(new ImageIcon("./src/khosro/model/res/walnut.png"));
+        setGif(new ImageIcon("./src/khosro/model/res/walnut4.gif"));
     }
 }
