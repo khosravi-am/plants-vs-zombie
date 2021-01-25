@@ -39,7 +39,7 @@ public class SunFlower extends Plants {
                      long bornTime,
                      int x,
                      int y) {
-        super(bulletArr, img, image, life, locX, locY, bornTime, x, y);
+        super(bulletArr, img, image, life, bornTime, x, y);
         cost = 100;
         preparingTime = 5;
     }
@@ -47,7 +47,9 @@ public class SunFlower extends Plants {
     public SunFlower(){
         setImage(new ImageIcon("./src/khosro/model/res/sunflower.png"));
         setGif(new ImageIcon("./src/khosro/model/res/sunflower.gif"));
-     }
+        //setWidth(100);
+        //setHeight(120);
+    }
 
     /**
      * Produce a sun
