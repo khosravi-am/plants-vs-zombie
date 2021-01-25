@@ -4,7 +4,6 @@ import khosro.model.component.Bullet.Bullet;
 import khosro.model.map.MapHome;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -31,7 +30,7 @@ public abstract class Pea extends Plants {
                long bornTime,
                int x,
                int y) {
-        super(bulletArr, img, image, life, locX, locY, bornTime, x, y);
+        super(bulletArr, img, image, life, bornTime, x, y);
         bullets = new ArrayList<>();
         preparingTime = 5;
     }
