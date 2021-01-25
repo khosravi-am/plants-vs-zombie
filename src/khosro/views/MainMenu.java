@@ -1,16 +1,24 @@
 package khosro.views;
 
+import khosro.model.res.AddressStore;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.geom.AffineTransform;
+import java.awt.image.BufferStrategy;
+import java.io.File;
+import java.io.IOException;
 
 public class MainMenu {
-    MainPage mainPage;
     public static final String NEWGAME = "New Game";
     public static final String LOADGAME = "Load game";
     public static final String SCOREBOARD = "Score Board";
     public static final String SETTINGS = "Settings";
-    Graphics2D graphics2D;
+
+    private MainPage mainPage;
+    private Graphics2D graphics2D;
 
     public MainMenu(MainPage mainPage) {
         this.mainPage = mainPage;
@@ -33,12 +41,21 @@ public class MainMenu {
         drawMenu(SETTINGS, 630, 500);
     }
 
-    public void changeColor(Color color) {
-        graphics2D.setColor(color);
-    }
-
     public void drawMenu(String newGame, int i, int i2) {
         graphics2D.drawString(newGame, i, i2);
+    }
+
+    public void drawLoadPage() {
+        try {
+            Image image = ImageIO.read(new File(AddressStore.LOADPAGE));
+            graphics2D.drawImage(image, 200, 150, 600, 500, null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void drawQuit() {
+        //TODO write quit
     }
 
     public boolean isNewGameMoved(MouseEvent e) {
@@ -67,5 +84,37 @@ public class MainMenu {
                 e.getX() < 955 &&
                 e.getY() < 385 &&
                 e.getY() > 236;
+    }
+
+    public void drawFrame() {
+        JFrame frame = new JFrame();
+        frame.setSize(400, 400);
+        frame.setUndecorated(true);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        frame.createBufferStrategy(3);
+        BufferStrategy strategy = frame.getBufferStrategy();
+        Graphics2D graphics2D = (Graphics2D) strategy.getDrawGraphics();
+        try {
+            Image image = ImageIO.read(new File(AddressStore.SCOREBOARDPAGE));
+            graphics2D.drawImage(image, 0, 0, 400, 400, null);
+            strategy.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public boolean isQuit(MouseEvent e) {
+        return e.getX() > 951 &&
+                e.getX() < 1050 &&
+                e.getY() < 700 &&
+                e.getY() > 575;
+    }
+
+    public boolean isHelp(MouseEvent e) {
+        return e.getX() > 860 &&
+                e.getX() < 945 &&
+                e.getY() < 706 &&
+                e.getY() > 625;
     }
 }

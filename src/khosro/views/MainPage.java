@@ -3,12 +3,12 @@ package khosro.views;
 
 import khosro.model.res.AddressStore;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferStrategy;
-import javax.swing.*;
 
 /**
  * The window on which the rendering is performed.
@@ -22,15 +22,21 @@ import javax.swing.*;
  */
 public class MainPage extends JFrame implements MouseMotionListener, MouseListener {
 
-    //uncomment all /*...*/ in the class for using Tank icon instead of a simple circle
     /*private BufferedImage image;*/
     private ImageIcon icon;
     private Image mainImage;
+
     private Boolean login;
-    private Boolean setting;
+    private Boolean settingPanel;
     private Boolean rank;
     private Boolean runGame;
-    private Boolean loadGame;
+    private Boolean loadGameOption;
+
+    private boolean newGame;
+    private boolean loadGame;
+    private boolean scoreBoard;
+    private boolean setting;
+
     private Graphics2D graphics;
     private BufferStrategy bufferStrategy;
 
@@ -41,23 +47,32 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
         icon = new ImageIcon(AddressStore.GAMEICONE);
         super.setIconImage(icon.getImage());
         super.setSize(1080, 770);
-        super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        super.setLocationRelativeTo(null);
-        super.setLayout(null);
-        super.setResizable(false);
-        super.setVisible(true);
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setLayout(null);
+        setResizable(false);
+//        setUndecorated(true);
+        setVisible(true);
+        initBufferStrategy();
+
         mainMenu = new MainMenu(this);
         addMouseListener(this);
         addMouseMotionListener(this);
 
         login = false;
-        setting = false;
+        settingPanel = false;
         rank = false;
         runGame = false;
-        loadGame = false;
+        loadGameOption = false;
 
-        initBufferStrategy();
+        newGame = false;
+        loadGame = false;
+        setting = false;
+        scoreBoard = false;
+
         mainImage = new ImageIcon(AddressStore.MAINPAGE).getImage();
+
         graphics = (Graphics2D) bufferStrategy.getDrawGraphics();
         mainMenu.setGraphics2D(graphics);
     }
@@ -70,7 +85,7 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
     public void initBufferStrategy() {
         // Triple-buffering
         this.createBufferStrategy(3);
-        bufferStrategy = this.getBufferStrategy();
+        bufferStrategy = super.getBufferStrategy();
     }
 
 
@@ -87,7 +102,24 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
                 // to make sure the strategy is validated
                 graphics = (Graphics2D) bufferStrategy.getDrawGraphics();
                 try {
+                    mainMenu.setGraphics2D(graphics);
                     doRendering();
+                    if (newGame) {
+                        graphics.setColor(Color.white);
+                        mainMenu.drawMenu(MainMenu.NEWGAME, 600, 195);
+                    } else if (loadGame) {
+                        graphics.setColor(Color.white);
+                        mainMenu.drawMenu(MainMenu.LOADGAME, 585, 305);
+                    } else if (scoreBoard) {
+                        graphics.setColor(Color.white);
+                        mainMenu.drawMenu(MainMenu.SCOREBOARD, 575, 400);
+                    } else if (setting) {
+                        graphics.setColor(Color.white);
+                        mainMenu.drawMenu(MainMenu.SETTINGS, 630, 500);
+                    } else {
+                        graphics.setColor(Color.black);
+                        mainMenu.drawStrings();
+                    }
                 } finally {
                     // Dispose the graphics
                     graphics.dispose();
@@ -125,6 +157,10 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
         return runGame;
     }
 
+    public BufferStrategy getBufferStrategy() {
+        return bufferStrategy;
+    }
+
     /**
      * Invoked when the mouse button has been clicked (pressed
      * and released) on a component.
@@ -135,11 +171,19 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
     public void mouseClicked(MouseEvent e) {
         System.out.println("(" + e.getX() + " , " + e.getY() + ")");
 
-        if (mainMenu.isLoadGameMoved(e)) {
-            System.out.println("Load Game clicked");
-        } else if (mainMenu.isNewGameMoved(e)) {
-            System.out.println("New Game clicked");
+        if (mainMenu.isNewGameMoved(e)) {
             runGame = true;
+        } else if (mainMenu.isLoadGameMoved(e)) {
+            loadGameOption = true;
+            mainMenu.drawLoadPage();
+        } else if (mainMenu.isScoreBoardGameMoved(e)) {
+            rank = true;
+        } else if (mainMenu.isSettingGameMoved(e)) {
+            settingPanel = true;
+        } else if (mainMenu.isQuit(e)) {
+            System.exit(0);
+        } else if (mainMenu.isHelp(e)) {
+            mainMenu.drawFrame();
         }
     }
 
@@ -211,17 +255,32 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
     public void mouseMoved(MouseEvent e) {
         if (graphics != null) {
             if (mainMenu.isNewGameMoved(e)) {
-                mainMenu.changeColor(Color.WHITE);
+                loadGame = false;
+                setting = false;
+                scoreBoard = false;
+                newGame = true;
             } else if (mainMenu.isLoadGameMoved(e)) {
-                mainMenu.changeColor(Color.WHITE);
+                newGame = false;
+                setting = false;
+                scoreBoard = false;
+                loadGame = true;
             } else if (mainMenu.isScoreBoardGameMoved(e)) {
-
+                newGame = false;
+                loadGame = false;
+                setting = false;
+                scoreBoard = true;
             } else if (mainMenu.isSettingGameMoved(e)) {
-
+                newGame = false;
+                loadGame = false;
+                scoreBoard = false;
+                setting = true;
+            } else if (mainMenu.isQuit(e)) {
+                mainMenu.drawQuit();
+            } else if (mainMenu.isHelp(e)) {
+                //TODO complete this field.
             } else {
-                mainMenu.changeColor(Color.black);
+                graphics.setColor(Color.black);
             }
-            doRendering();
         }
     }
 }

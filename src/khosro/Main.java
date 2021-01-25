@@ -2,10 +2,8 @@ package khosro;
 
 import khosro.controller.GameController;
 import khosro.model.map.Map;
-import khosro.views.*;
-
-import java.awt.*;
-import java.lang.reflect.InvocationTargetException;
+import khosro.views.GamePage;
+import khosro.views.MainPage;
 
 public class Main {
     public static final int FPS = 90;
@@ -20,7 +18,6 @@ public class Main {
     public static Boolean card3 = false;
     public static Boolean card4 = false;
     public static Boolean card5 = false;
-    public static Boolean mainMenu = true;
     private static long start2;
     private static long start3;
     private static long start4;
@@ -31,7 +28,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        MainPage mainPage=new MainPage();
+        MainPage mainPage = new MainPage();
         while (!mainPage.getRunGame()) {
             try {
                 long start = System.currentTimeMillis();
@@ -40,7 +37,7 @@ public class Main {
                 if (delay > 0)
                     Thread.sleep(delay);
 
-            } catch (InterruptedException ex) {
+            } catch (InterruptedException ignored) {
             }
         }
 
@@ -93,7 +90,7 @@ public class Main {
                         if (delay > 0)
                             Thread.sleep(delay);
 
-                    } catch (InterruptedException ex) {
+                    } catch (InterruptedException ignored) {
                     }
                 }
             }
@@ -145,8 +142,7 @@ public class Main {
                 p = 85;
                 gameHandler.setPlant(null);
             }
-        }catch (NullPointerException e){
-
+        } catch (NullPointerException ignored) {
         }
 
     }
@@ -181,20 +177,20 @@ public class Main {
 
         }
         if (cc == 0)
-            card4=true;
+            card4 = true;
         if (System.currentTimeMillis() - start5 > 280 && !card5) {
             p--;
             start5 = System.currentTimeMillis();
 
         }
         if (p == 0)
-            card5=true;
+            card5 = true;
         if (System.currentTimeMillis() - start6 > 200 && !card3) {
             f--;
             start6 = System.currentTimeMillis();
 
         }
         if (f == 0)
-            card3=true;
+            card3 = true;
     }
 }
