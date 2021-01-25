@@ -4,6 +4,7 @@ import khosro.model.component.Bullet.Bullet;
 import khosro.model.map.MapHome;
 
 import javax.swing.*;
+import javax.swing.plaf.TableHeaderUI;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class Cherry extends Plants {
      * Domain of explosion
      */
     private final int explodeDomains = 1;
+    private Long time;
 
     /**
      * @param bulletArr Array of bullet that plant can shoot it. If plant can't shoot a bullet, it equal to null.
@@ -40,12 +42,27 @@ public class Cherry extends Plants {
                   long bornTime,
                   int x,
                   int y) {
-        super(bulletArr, img, image, life, locX, locY, bornTime, x, y);
+        super(bulletArr, img, image, life, bornTime, x, y);
         cost = 150;
         preparingTime = 7;
     }
 
-    public void explode() {
-
+    public Cherry(){
+        setImage(new ImageIcon("./src/khosro/model/res/cherry.png"));
     }
+
+    public void explode() {
+        Thread thread=new Thread(){
+            @Override
+            public void run() {
+                while (true)
+                    if (System.currentTimeMillis()-getBornTime()>1590)
+                        break;
+                dead();
+            }
+        };
+        thread.start();
+    }
+
+
 }
