@@ -1,6 +1,7 @@
 package khosro.model.component.plant;
 
 import khosro.model.component.Bullet.Bullet;
+import khosro.model.component.Bullet.PeaBullet;
 import khosro.model.map.MapHome;
 
 import javax.imageio.ImageIO;
@@ -10,7 +11,8 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class Peashooter extends Plants {
-
+    private Bullet peaBullet;
+    private Boolean shoot=false;
     /**
      * @param bulletArr     Array of bullet that plant can shoot it. If plant can't shoot a bullet, it equal to null.
      * @param img           Image address.
@@ -38,6 +40,10 @@ public class Peashooter extends Plants {
     public Peashooter(){
         setImage(new ImageIcon("./src/khosro/model/res/pea.png"));
         setGif(new ImageIcon("./src/khosro/model/res/PeaShooter.gif"));
+        setCost(100);
+        peaBullet=new PeaBullet();
+        setLife(70);
+
     }
 
 
@@ -45,8 +51,13 @@ public class Peashooter extends Plants {
      * Shoot the bullet to zombie.
      * Create a bullet and add its to array of bullet.
      */
-    public void shoot() {
-//        Bullet bullet = new PeaBullet("");
-//        bulletArr.add(bullet);
+    public Bullet shoot() {
+        peaBullet.setRun(true);
+        peaBullet.setBornTime(System.currentTimeMillis());
+        return peaBullet;
+    }
+
+    public Bullet getPeaBullet() {
+        return peaBullet;
     }
 }

@@ -1,6 +1,8 @@
 package khosro.model.component.plant;
 
 import khosro.model.component.Bullet.Bullet;
+import khosro.model.component.Sun;
+import khosro.model.component.zombie.Zombie;
 import khosro.model.map.MapHome;
 
 import javax.imageio.ImageIO;
@@ -10,6 +12,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import static java.lang.Thread.interrupted;
 
 /**
  * SuperClass of all other plants.
@@ -42,7 +46,7 @@ public class Plants implements Cloneable {
     /**
      * Each plants how many life time when zombies eat it.
      */
-    protected int life;
+    protected double life;
 
     /**
      * The time each plants produce its product (sunflower produce a sun and shooters shoot a bullet)
@@ -71,9 +75,9 @@ public class Plants implements Cloneable {
     protected int y;
 
     protected boolean live;
-
-    protected boolean use=false;
-    protected boolean use2=false;
+    private Runnable runnable;
+    protected boolean use = false;
+    protected boolean use2 = false;
 
     /**
      * @param bulletArr Array of bullet that plant can shoot it. If plant can't shoot a bullet, it equal to null.
@@ -87,7 +91,7 @@ public class Plants implements Cloneable {
     public Plants(ArrayList<Bullet> bulletArr,
                   BufferedImage img,
                   ImageIcon image,
-                  int life,
+                  double life,
                   long bornTime,
                   int x,
                   int y) {
@@ -110,10 +114,10 @@ public class Plants implements Cloneable {
     }
 
     public Plants() {
-        live=true;
+        live = true;
+        setBornTime(System.currentTimeMillis());
 
     }
-
 
 
     public int getX() {
@@ -168,11 +172,11 @@ public class Plants implements Cloneable {
         this.cost = cost;
     }
 
-    public int getLife() {
+    public double getLife() {
         return life;
     }
 
-    public void setLife(int life) {
+    public void setLife(double life) {
         this.life = life;
     }
 
@@ -242,15 +246,50 @@ public class Plants implements Cloneable {
         live = false;
     }
 
+    public void dead(Sun sun) {
+        live = false;
+        sun = null;
+    }
+
     /**
-     *
      * @return
      * @throws CloneNotSupportedException
-     *
      */
 
     @Override
-    public Object clone()throws CloneNotSupportedException{
+    public Object clone() throws CloneNotSupportedException {
         return super.clone();
+    }
+
+    public Runnable getRunnable() {
+        return runnable;
+    }
+
+    public void setRunnable(Runnable runnable) {
+        this.runnable = runnable;
+    }
+
+    public Runnable bemir(Zombie zombie) {
+        runnable = new Runnable() {
+            @Override
+            public void run() {
+                while (live && zombie.getLive()) {
+                    if (zombie==null)
+                        break;
+                    if (System.currentTimeMillis() - getBornTime() > 150) {
+                        setBornTime(System.currentTimeMillis());
+                        setLife(getLife() - zombie.getPower());
+                        if (getLife() <= 0) {
+                            dead();
+                            interrupted();
+                            break;
+                        }
+                    }
+                }
+                interrupted();
+            }
+        };
+
+        return runnable;
     }
 }

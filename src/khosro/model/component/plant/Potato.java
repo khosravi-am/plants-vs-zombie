@@ -38,5 +38,7 @@ public class Potato extends Plants {
     public Potato(){
         setImage(new ImageIcon("./src/khosro/model/res/walnut.png"));
         setGif(new ImageIcon("./src/khosro/model/res/walnut4.gif"));
+        setCost(50);
+        setLife(150);
     }
 }

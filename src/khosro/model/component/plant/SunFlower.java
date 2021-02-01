@@ -18,6 +18,9 @@ public class SunFlower extends Plants {
      * Time has left to produce a sun per second by a sunflower.
      */
     public static final int PRODUCINGTIME = 20;
+    private Boolean haveSun=false;
+    private Sun sun;
+    private Long l;
 
     /**
      * @param bulletArr Array of bullet that plant can shoot it. If plant can't shoot a bullet, it equal to null.
@@ -30,6 +33,7 @@ public class SunFlower extends Plants {
      * @param x         X location in map
      * @param y         Y location in map
      */
+
     public SunFlower(ArrayList<Bullet> bulletArr,
                      BufferedImage img,
                      ImageIcon image,
@@ -49,12 +53,70 @@ public class SunFlower extends Plants {
         setGif(new ImageIcon("./src/khosro/model/res/sunflower.gif"));
         //setWidth(100);
         //setHeight(120);
+        setPreparingTime(15000);
+        sun=new Sun(getX()+50,getY()+50);
+        setLife(50);
+        setCost(50);
+    }
+
+    @Override
+    public void setX(int x) {
+        super.setX(x);
+        sun.setX(x+40);
+    }
+
+    @Override
+    public void setY(int y) {
+        super.setY(y);
+        sun.setY(y+30);
+    }
+
+    public Sun getSun() {
+        return sun;
+    }
+
+    public void setSun(Sun sun) {
+        this.sun=sun;
+        if (sun==null)
+            haveSun=false;
+        else
+            haveSun=true;
+    }
+
+    public Boolean getHaveSun() {
+        return haveSun;
+    }
+
+    public void setHaveSun(Boolean haveSun) {
+        this.haveSun = haveSun;
     }
 
     /**
      * Produce a sun
      */
     public void produceSun() {
-        new Sun(x, y);
+       Thread thread=new Thread(){
+           @Override
+           public void run() {
+               setBornTime(System.currentTimeMillis());
+               while (isLive()) {
+                   if (System.currentTimeMillis()-getBornTime()>5000) {
+                       if (haveSun) {
+                           setHaveSun(false);
+                           setBornTime(System.currentTimeMillis());
+                           continue;
+                       }
+                       if (System.currentTimeMillis()-getBornTime()>6500){
+                           setHaveSun(true);
+                           setBornTime(System.currentTimeMillis());
+                       }
+                   }
+
+
+               }
+           }
+       };
+       thread.start();
+
     }
 }
