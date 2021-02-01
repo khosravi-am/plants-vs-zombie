@@ -17,9 +17,9 @@ import static java.lang.Thread.sleep;
 
 public class GamePage extends JFrame {
     private Image background, bullet, sun, cardCherry, cardFreeze, cardPea, cardFlower, cardPotato, shovel, level, menuBar, menu;
-    private int sunNum = 0, time;
+    private int sunNum = 50, time;
     private Image icon;
-    private Boolean cardTime;
+    private Boolean clickShovel = false;
     private ArrayList<Image> plant;
     private Long start;
 
@@ -52,17 +52,28 @@ public class GamePage extends JFrame {
 
 
     public void setRows(Graphics2D g2d, ArrayList<MapRow> mapRow) {
+
         for (int i = 0; i < 5; i++)
             for (int j = 0; j < 9; j++) {
                 g2d.drawImage(mapRow.get(i).getMapHomes().get(j).getImage(), mapRow.get(i).getMapHomes().get(j).getX(), mapRow.get(i).getY(), mapRow.get(i).getMapHomes().get(j).getWidth(), mapRow.get(i).getHeight(), null);
-                g2d.drawImage(mapRow.get(i).getImage(), -30, mapRow.get(i).getY() + 10, 90, mapRow.get(i).getHeight() - 60, null);
+                if (mapRow.get(i).getHaveCar())
+                    g2d.drawImage(mapRow.get(i).getImage(), mapRow.get(i).getX(), mapRow.get(i).getY() + 10, 90, mapRow.get(i).getHeight() - 60, null);
 
             }
     }
 
+    public Boolean getClickShovel() {
+        return clickShovel;
+    }
+
+    public void setClickShovel(Boolean clickShovel) {
+        this.clickShovel = clickShovel;
+    }
+
     public void paintMenu(Graphics2D g2d) {
         g2d.drawImage(menuBar, 20, 31, 695, 110, null);
-        g2d.drawImage(shovel, 615, 36, 90, 75, null);
+        if (!clickShovel)
+            g2d.drawImage(shovel, 615, 36, 90, 75, null);
         g2d.drawImage(menu, 925, 30, 140, 40, null);
         g2d.drawImage(level, 800, 735, 220, 30, null);
         g2d.drawImage(cardFlower, 130, 40, 70, 85, null);
@@ -74,18 +85,39 @@ public class GamePage extends JFrame {
         g2d.setFont(g2d.getFont().deriveFont(30.0f));
         g2d.drawString("menu", 955, 50);
         g2d.setColor(Color.BLACK);
-        g2d.drawString(String.valueOf(sunNum), 65, 130);
+        if (sunNum < 10)
+            g2d.drawString(String.valueOf(sunNum), 65, 130);
+        else if (sunNum < 99)
+            g2d.drawString(String.valueOf(sunNum), 55, 130);
+        else if (sunNum < 999)
+            g2d.drawString(String.valueOf(sunNum), 50, 130);
+        else if (sunNum > 999) {
+            g2d.setFont(g2d.getFont().deriveFont(25.0f));
+            g2d.drawString(String.valueOf(sunNum), 45, 130);
+        }
 
     }
 
     public void delayCardFlower(Graphics2D g2d, int i) {
         g2d.setColor(new Color(0f, 0f, 0f, .5f));
         g2d.fillRect(130, 40, 70, i);
+        if (sunNum < 50)
+            g2d.fillRect(130, 40, 70, 85);
+
+
     }
 
     public void paintLevel(Graphics2D g2d, int i) {
         g2d.setColor(new Color(0f, 1f, 0f, 1f));
         g2d.fillRect(812, 750, i, 5);
+    }
+
+    public void setSun(Image sun) {
+        this.sun = sun;
+    }
+
+    public void setSunNum(int sunNum) {
+        this.sunNum = sunNum;
     }
 
     public Image getBullet() {
@@ -159,21 +191,33 @@ public class GamePage extends JFrame {
     public void delayCardCherry(Graphics2D g2d, int cc) {
         g2d.setColor(new Color(0f, 0f, 0f, .5f));
         g2d.fillRect(370, 40, 70, cc);
+        if (sunNum < 150)
+            g2d.fillRect(370, 40, 70, 85);
+
     }
 
     public void delayCardPea(Graphics2D g2d, int cp) {
         g2d.setColor(new Color(0f, 0f, 0f, .5f));
         g2d.fillRect(210, 40, 70, cp);
+        if (sunNum < 100)
+            g2d.fillRect(210, 40, 70, 85);
+
     }
 
     public void delayCardFreeze(Graphics2D g2d, int f) {
         g2d.setColor(new Color(0f, 0f, 0f, .5f));
         g2d.fillRect(290, 40, 70, f);
+        if (sunNum < 175)
+            g2d.fillRect(290, 40, 70, 85);
+
     }
 
     public void delayCardPotato(Graphics2D g2d, int p) {
         g2d.setColor(new Color(0f, 0f, 0f, .5f));
         g2d.fillRect(450, 40, 70, p);
+        if (sunNum < 50)
+            g2d.fillRect(450, 40, 70, 85);
+
     }
 
     public void paintMouseImg(Graphics2D g2d, Image image, int mouseX, int mouseY) {
@@ -187,11 +231,19 @@ public class GamePage extends JFrame {
             g2d.drawImage(image, x + 20, y + 30, 80, 95, null);
     }
 
-    public void paintHomeImage(Graphics2D g2d, Image image, int x, int y,int width,int height) {
+    public void paintHomeImage(Graphics2D g2d, Image image, int x, int y, int width, int height) {
         if (y > 115)
             g2d.drawImage(image, x + 20, y + 10, width, height, null);
         else
             g2d.drawImage(image, x + 20, y + 30, width, height, null);
+    }
+
+    public void drawImage(Graphics2D g2d, Image image, int x, int y) {
+        g2d.drawImage(image, x, y, null);
+    }
+
+    public void paintZombie(Graphics2D g2d, Image image, int x, int y) {
+        g2d.drawImage(image, x, y, 100, 130, null);
     }
 
     /**
