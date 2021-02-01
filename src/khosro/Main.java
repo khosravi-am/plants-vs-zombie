@@ -1,34 +1,27 @@
 package khosro;
 
 import khosro.controller.GameController;
+import khosro.model.component.zombie.Zombies;
 import khosro.model.map.Map;
-import khosro.views.GamePage;
-import khosro.views.MainPage;
+import khosro.views.*;
+
 
 public class Main {
-    public static final int FPS = 90;
+    public static final int FPS = 99;
     private static int cf = 85;
     private static int cc = 85;
     private static int cp = 85;
     private static int f = 85;
     private static int p = 85;
-    private static int l = 0;
-    public static Boolean card1 = false;
-    public static Boolean card2 = false;
-    public static Boolean card3 = false;
-    public static Boolean card4 = false;
-    public static Boolean card5 = false;
-    private static long start2;
-    private static long start3;
-    private static long start4;
-    private static long start5;
-    private static long start6;
+    private static int l = 0, type = 1;
+    public static Boolean card[] = {false, false, false, false, false};
     private static long start7;
+    private static long start[] = {System.currentTimeMillis(), System.currentTimeMillis(), System.currentTimeMillis(), System.currentTimeMillis(), System.currentTimeMillis()};
 
 
     public static void main(String[] args) {
 
-        MainPage mainPage = new MainPage();
+    /*    MainPage mainPage = new MainPage();
         while (!mainPage.getRunGame()) {
             try {
                 long start = System.currentTimeMillis();
@@ -37,69 +30,48 @@ public class Main {
                 if (delay > 0)
                     Thread.sleep(delay);
 
-            } catch (InterruptedException ignored) {
+            } catch (InterruptedException ex) {
             }
         }
-
-
+*/
         // Initialize the global thread-pool
         // ThreadPool.init();
 
         // Show the game menu ...
 
         // After the player clicks 'PLAY' ...
-        Thread t = new Thread() {
+        Map map = new Map();
+        GamePage gamePage = new GamePage();
+        Zombies zombie = new Zombies();
 
-            /**
-             * When an object implementing interface <code>Runnable</code> is used
-             * to create a thread, starting the thread causes the object's
-             * <code>run</code> method to be called in that separately executing
-             * thread.
-             * <p>
-             * The general contract of the method <code>run</code> is that it may
-             * take any action whatsoever.
-             *
-             * @see Thread#run()
-             */
-            @Override
-            public void run() {
-                Map map = new Map();
-                GamePage gamePage = new GamePage();
-                GameController gameHandler = new GameController(map, gamePage);
+        GameController gameHandler = new GameController(map, gamePage, zombie);
 
-                boolean gameOver = false;
-                start2 = System.currentTimeMillis();
-                start3 = System.currentTimeMillis();
-                start4 = System.currentTimeMillis();
-                start5 = System.currentTimeMillis();
-                start6 = System.currentTimeMillis();
-                start7 = System.currentTimeMillis();
-                while (!gameOver) {
-                    try {
-                        long start = System.currentTimeMillis();
-                        //
-                        gameHandler.render(cf, cc, cp, f, p, l);
-                        //gameHandler.render2();
-                        gameHandler.update();
-                        //canvas.render(state);
-                        gameOver = gameHandler.gameOver;
-                        check2(gameHandler);
-                        check();
-                        level();
-                        long delay = (1000 / FPS) - (System.currentTimeMillis() - start);
-                        if (delay > 0)
-                            Thread.sleep(delay);
+        start7 = System.currentTimeMillis();
+        while (!gameHandler.getGameOver()) {
+            try {
+                long start = System.currentTimeMillis();
+                gameHandler.render(cf, cc, cp, f, p, l);
+                if (!gameHandler.getMenu()) {
 
-                    } catch (InterruptedException ignored) {
-                    }
+                    check2(gameHandler);
+                    check();
+                    level();
                 }
+                long delay = (1000 / FPS) - (System.currentTimeMillis() - start);
+                if (delay > 0)
+                    Thread.sleep(delay);
+
+            } catch (InterruptedException ex) {
             }
-        };
-        if (mainPage.getRunGame()) {
-            mainPage.dispose();
-            t.start();
         }
 
+
+//        if (mainPage.getRunGame()) {
+//            mainPage.dispose();
+//        }
+        gamePage.dispose();
+        System.out.println("tamam2");
+        System.exit(0);
     }
 
 
@@ -107,48 +79,49 @@ public class Main {
         try {
 
 
-            if (!gameHandler.getPlant().isUse() && gameHandler.getPlant().getClass().getSimpleName().equals("SunFlower") && card1) {
-                card1 = false;
+            if (!gameHandler.getPlant().isUse() && gameHandler.getPlant().getClass().getSimpleName().equals("SunFlower") && card[0]) {
+                card[0] = false;
                 if (cf == 0)
-                    start2 = System.currentTimeMillis();
+                    start[0] = System.currentTimeMillis();
                 cf = 85;
                 gameHandler.setPlant(null);
             }
-            if (!gameHandler.getPlant().isUse() && gameHandler.getPlant().getClass().getSimpleName().equals("Peashooter") && card2) {
-                card2 = false;
+            if (!gameHandler.getPlant().isUse() && gameHandler.getPlant().getClass().getSimpleName().equals("Peashooter") && card[1]) {
+                card[1] = false;
                 if (cp == 0)
-                    start3 = System.currentTimeMillis();
+                    start[1] = System.currentTimeMillis();
                 cp = 85;
                 gameHandler.setPlant(null);
             }
-            if (!gameHandler.getPlant().isUse() && gameHandler.getPlant().getClass().getSimpleName().equals("SnowPea") && card3) {
-                card3 = false;
+            if (!gameHandler.getPlant().isUse() && gameHandler.getPlant().getClass().getSimpleName().equals("SnowPea") && card[2]) {
+                card[2] = false;
                 if (f == 0)
-                    start4 = System.currentTimeMillis();
+                    start[2] = System.currentTimeMillis();
                 f = 85;
                 gameHandler.setPlant(null);
             }
-            if (!gameHandler.getPlant().isUse() && gameHandler.getPlant().getClass().getSimpleName().equals("Cherry") && card4) {
-                card4 = false;
+            if (!gameHandler.getPlant().isUse() && gameHandler.getPlant().getClass().getSimpleName().equals("Cherry") && card[3]) {
+                card[3] = false;
                 if (cc == 0)
-                    start5 = System.currentTimeMillis();
+                    start[3] = System.currentTimeMillis();
                 cc = 85;
                 gameHandler.setPlant(null);
             }
-            if (!gameHandler.getPlant().isUse() && gameHandler.getPlant().getClass().getSimpleName().equals("Potato") && card5) {
-                card5 = false;
+            if (!gameHandler.getPlant().isUse() && gameHandler.getPlant().getClass().getSimpleName().equals("Potato") && card[4]) {
+                card[4] = false;
                 if (p == 0)
-                    start6 = System.currentTimeMillis();
+                    start[4] = System.currentTimeMillis();
                 p = 85;
                 gameHandler.setPlant(null);
             }
-        } catch (NullPointerException ignored) {
+        } catch (NullPointerException e) {
+
         }
 
     }
 
     private static void level() {
-        if (System.currentTimeMillis() - start7 > 4000 && l < 200) {
+        if (System.currentTimeMillis() - start7 > 3000 && l < 200) {
             l++;
             start7 = System.currentTimeMillis();
             System.out.println(l);
@@ -157,40 +130,28 @@ public class Main {
     }
 
     private static void check() {
-        if (System.currentTimeMillis() - start2 > 100 && !card1) {
-            cf--;
-            start2 = System.currentTimeMillis();
+        cf = check3(cf, 90, 0, 0);
 
-        }
-        if (cf == 0)
-            card1 = true;
-        if (System.currentTimeMillis() - start3 > 150 && !card2) {
-            cp--;
-            start3 = System.currentTimeMillis();
+        cp = check3(cp, 100, 1, 1);
 
-        }
-        if (cp == 0)
-            card2 = true;
-        if (System.currentTimeMillis() - start4 > 350 && !card4) {
-            cc--;
-            start4 = System.currentTimeMillis();
+        if (type == 1)
+            cc = check3(cc, 353, 3, 3);
+        else cc = check3(cc, 530, 3, 3);
 
-        }
-        if (cc == 0)
-            card4 = true;
-        if (System.currentTimeMillis() - start5 > 280 && !card5) {
-            p--;
-            start5 = System.currentTimeMillis();
+        p = check3(p, 350, 4, 4);
 
-        }
-        if (p == 0)
-            card5 = true;
-        if (System.currentTimeMillis() - start6 > 200 && !card3) {
-            f--;
-            start6 = System.currentTimeMillis();
+        if (type == 1)
+            f = check3(f, 150, 2, 2);
+        else f = check3(f, 350, 2, 2);
+    }
 
+    private static int check3(int i, int delay, int c, int s) {
+        if (System.currentTimeMillis() - start[s] > delay && !card[c]) {
+            i--;
+            start[s] = System.currentTimeMillis();
         }
-        if (f == 0)
-            card3 = true;
+        if (i == 0)
+            card[c] = true;
+        return i;
     }
 }
