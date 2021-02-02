@@ -9,20 +9,28 @@ import khosro.model.map.Map;
 import khosro.model.map.MapHome;
 import khosro.views.GamePage;
 
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.util.concurrent.ExecutorService;
 import java.awt.image.BufferStrategy;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static java.lang.Thread.sleep;
-
 public class GameController implements MouseListener, MouseMotionListener {
-    private Boolean clickPea = false, clickSunflower = false, gameOver = false, clickFreeze = false, clickPotato = false, clickCherry = false, cherry = false, over = false, resume = false, save = false, exit = false, restart = false;
+    private Boolean clickPea = false;
+    private Boolean clickSunflower = false;
+    private Boolean gameOver = false;
+    private Boolean clickFreeze = false;
+    private Boolean clickPotato = false;
+    private Boolean clickCherry = false;
+    private Boolean cherry = false;
+    private Boolean over = false;
+    private Boolean resume = false;
+    private Boolean save = false;
+    private Boolean exit = false;
+    private Boolean restart = false;
     private Map map;
     private Plants plant;
     private Sun sun;
@@ -139,7 +147,7 @@ public class GameController implements MouseListener, MouseMotionListener {
                         g2d.drawString(String.valueOf(gamePage.getSunNum()), 600, 730);
                         if (System.currentTimeMillis() - start > 10000)
                             gameOver = true;
-                    } else if (win && !map.getMapRows().get(0).getHaveZombie() && !map.getMapRows().get(1).getHaveZombie() && !map.getMapRows().get(2).getHaveZombie() && !map.getMapRows().get(3).getHaveZombie() && !map.getMapRows().get(4).getHaveZombie() ) {
+                    } else if (win && !map.getMapRows().get(0).getHaveZombie() && !map.getMapRows().get(1).getHaveZombie() && !map.getMapRows().get(2).getHaveZombie() && !map.getMapRows().get(3).getHaveZombie() && !map.getMapRows().get(4).getHaveZombie()) {
                         g2d.drawImage(new ImageIcon("./src/khosro/model/res/background.jpg").getImage(), 0, 0, 1080, 770, null);
                         g2d.setColor(Color.BLACK);
                         g2d.setFont(g2d.getFont().deriveFont(90.0f));

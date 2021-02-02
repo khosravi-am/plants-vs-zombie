@@ -40,7 +40,7 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
     private Graphics2D graphics;
     private BufferStrategy bufferStrategy;
 
-    MainMenu mainMenu;
+    private MainMenu mainMenu;
 
     public MainPage() {
         super("Plants vs. Zombie");
@@ -184,6 +184,8 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
             System.exit(0);
         } else if (mainMenu.isHelp(e)) {
             mainMenu.drawFrame();
+        } else if (mainMenu.isNewUser(e)) {
+            
         }
     }
 

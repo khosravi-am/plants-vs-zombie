@@ -16,12 +16,23 @@ public class Main {
     private static int l = 0, type = 1;
     public static Boolean card[] = {false, false, false, false, false};
     private static long start7;
-    private static long start[] = {System.currentTimeMillis(), System.currentTimeMillis(), System.currentTimeMillis(), System.currentTimeMillis(), System.currentTimeMillis()};
+    private static long start[] = {
+            System.currentTimeMillis(),
+            System.currentTimeMillis(),
+            System.currentTimeMillis(),
+            System.currentTimeMillis(),
+            System.currentTimeMillis()};
 
 
     public static void main(String[] args) {
 
-    /*    MainPage mainPage = new MainPage();
+        Map map = new Map();
+        GamePage gamePage = new GamePage();
+        Zombies zombie = new Zombies();
+
+        GameController gameHandler = new GameController(map, gamePage, zombie);
+
+        MainPage mainPage = new MainPage();
         while (!mainPage.getRunGame()) {
             try {
                 long start = System.currentTimeMillis();
@@ -29,56 +40,31 @@ public class Main {
                 long delay = (1000 / FPS) - (System.currentTimeMillis() - start);
                 if (delay > 0)
                     Thread.sleep(delay);
-
-            } catch (InterruptedException ex) {
-            }
-        }
-*/
-        // Initialize the global thread-pool
-        // ThreadPool.init();
-
-        // Show the game menu ...
-
-        // After the player clicks 'PLAY' ...
-        Map map = new Map();
-        GamePage gamePage = new GamePage();
-        Zombies zombie = new Zombies();
-
-        GameController gameHandler = new GameController(map, gamePage, zombie);
-
-        start7 = System.currentTimeMillis();
-        while (!gameHandler.getGameOver()) {
-            try {
-                long start = System.currentTimeMillis();
-                gameHandler.render(cf, cc, cp, f, p, l);
-                if (!gameHandler.getMenu()) {
-
-                    check2(gameHandler);
-                    check();
-                    level();
-                }
-                long delay = (1000 / FPS) - (System.currentTimeMillis() - start);
-                if (delay > 0)
-                    Thread.sleep(delay);
-
-            } catch (InterruptedException ex) {
+            } catch (InterruptedException ignore) {
             }
         }
 
-
-//        if (mainPage.getRunGame()) {
-//            mainPage.dispose();
+//        start7 = System.currentTimeMillis();
+//        while (!gameHandler.getGameOver()) {
+//            long start = System.currentTimeMillis();
+//            gameHandler.render(cf, cc, cp, f, p, l);
+//            if (!gameHandler.getMenu()) {
+//                check2(gameHandler);
+//                check();
+//                level();
+//            }
 //        }
+
+
+        mainPage.dispose();
+
         gamePage.dispose();
         System.out.println("tamam2");
         System.exit(0);
     }
 
-
     private static void check2(GameController gameHandler) {
         try {
-
-
             if (!gameHandler.getPlant().isUse() && gameHandler.getPlant().getClass().getSimpleName().equals("SunFlower") && card[0]) {
                 card[0] = false;
                 if (cf == 0)
@@ -114,8 +100,7 @@ public class Main {
                 p = 85;
                 gameHandler.setPlant(null);
             }
-        } catch (NullPointerException e) {
-
+        } catch (NullPointerException ignore) {
         }
 
     }

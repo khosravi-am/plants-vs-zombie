@@ -117,4 +117,11 @@ public class MainMenu {
                 e.getY() < 706 &&
                 e.getY() > 625;
     }
+
+    public boolean isNewUser(MouseEvent e) {
+        return e.getX() > 50 &&
+                e.getX() < 412 &&
+                e.getY() < 215 &&
+                e.getY() > 170;
+    }
 }
