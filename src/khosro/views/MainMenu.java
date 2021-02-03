@@ -85,6 +85,15 @@ public class MainMenu {
         }
     }
 
+    public void drawScoreBoard() {
+        try {
+            Image image = ImageIO.read(new File(AddressStore.SCOREBOARD_PAGE));
+            graphics2D.drawImage(image, 200, 170, null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void drawQuit() {
         //TODO write quit
     }

@@ -94,7 +94,6 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
         bufferStrategy = super.getBufferStrategy();
     }
 
-
     /**
      * Game rendering with triple-buffering using BufferStrategy.
      */
@@ -121,6 +120,8 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
                         }
                     } else if (help) {
                         mainMenu.drawHelp();
+                    } else if (rank) {
+                        mainMenu.drawScoreBoard();
                     } else {
                         init();
                     }
@@ -235,6 +236,8 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
         } else if (mainMenu.isNewUser(e)) {
             newUser = true;
             System.out.println("New User Clicked.");
+        } else if (mainMenu.isScoreBoardGameMoved(e)) {
+            rank = true;
         }
         if (newUser) {
             if (mainMenu.isCancel(e)) {
