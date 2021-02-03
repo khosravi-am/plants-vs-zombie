@@ -1,9 +1,10 @@
 package khosro.model.map;
 
 import javax.swing.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Map {
+public class Map implements Serializable {
     private ArrayList<MapRow> mapRows;
     private ImageIcon background, cardCherry, cardFreeze, cardPea, cardFlower, cardPotato, shovel, level, menuBar, menu;
     private int sunNum;
@@ -12,6 +13,7 @@ public class Map {
         setImage();
         mapRows = new ArrayList<>();
         setMapRows(mapRows);
+        setSunNum(50);
     }
 
     private void setMapRows(ArrayList<MapRow> mapRows) {
@@ -87,5 +89,23 @@ public class Map {
 
     public ImageIcon getMenuBar() {
         return menuBar;
+    }
+
+    @Override
+    public String toString() {
+        return "Map{" +
+                "mapRows=" + mapRows +
+                ", background=" + background +
+                ", cardCherry=" + cardCherry +
+                ", cardFreeze=" + cardFreeze +
+                ", cardPea=" + cardPea +
+                ", cardFlower=" + cardFlower +
+                ", cardPotato=" + cardPotato +
+                ", shovel=" + shovel +
+                ", level=" + level +
+                ", menuBar=" + menuBar +
+                ", menu=" + menu +
+                ", sunNum=" + sunNum +
+                '}';
     }
 }

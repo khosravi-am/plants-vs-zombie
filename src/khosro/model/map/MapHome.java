@@ -6,10 +6,11 @@ import khosro.model.component.zombie.Zombie;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
+import java.io.Serializable;
 
-public class MapHome {
-    private Image image;
+
+public class MapHome implements Serializable {
+    private ImageIcon image;
     private int count, x,y,x2,y2, width, height,row;
     private Boolean click=false,sunflower=false,pea=false,freeze=false,potato=false,cherry=false,por=false,haveZombie=false,haveBullet=false,haveSnow=false;
     private Plants plant;
@@ -21,12 +22,6 @@ public class MapHome {
         this.height=height;
         setXY(count);
         setImage(count);
-      /*  setFocusable(false);
-        setLayout(null);
-        setBounds(x,y,width-10,height-30);
-        if (y>115)
-            setBounds(x,y-30,width-10,height);
-      */  //setFocusPainted(false);
         x2=x+width;
         y2=y+height;
     }
@@ -187,7 +182,7 @@ public class MapHome {
     }
 
     public Image getImage() {
-        return image;
+        return image.getImage();
     }
 
     public int getCount() {
@@ -262,7 +257,7 @@ public class MapHome {
         this.potato = potato;
     }
 
-    public void setImage(Image image) {
+    public void setImage(ImageIcon image) {
         this.image = image;
     }
 
@@ -283,5 +278,34 @@ public class MapHome {
             por = false;
         else
             por = true;
+    }
+
+    @Override
+    public String toString() {
+        return "MapHome{" +
+                "image=" + image +
+                ", count=" + count +
+                ", x=" + x +
+                ", y=" + y +
+                ", x2=" + x2 +
+                ", y2=" + y2 +
+                ", width=" + width +
+                ", height=" + height +
+                ", row=" + row +
+                ", click=" + click +
+                ", sunflower=" + sunflower +
+                ", pea=" + pea +
+                ", freeze=" + freeze +
+                ", potato=" + potato +
+                ", cherry=" + cherry +
+                ", por=" + por +
+                ", haveZombie=" + haveZombie +
+                ", haveBullet=" + haveBullet +
+                ", haveSnow=" + haveSnow +
+                ", plant=" + plant +
+                ", zombie=" + zombie +
+                ", bullet=" + bullet +
+                ", snowBullet=" + snowBullet +
+                '}';
     }
 }

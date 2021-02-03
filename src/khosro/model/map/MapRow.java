@@ -1,14 +1,16 @@
 package khosro.model.map;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class MapRow {
+public class MapRow implements Serializable {
     private ArrayList<MapHome> mapHomes;
-    private Image image, image2;
+    private ImageIcon image;
     private int count, x, width, y, height;
     private Boolean haveZombie = false,haveCar=true;
 
@@ -20,21 +22,7 @@ public class MapRow {
     }
 
     private void setImage() {
-        try {
-            image = ImageIO.read(new File("./src/khosro/model/res/car.png"));
-            if (count == 0)
-                image2 = ImageIO.read(new File("./src/khosro/model/res/row-1.png"));
-            if (count == 1)
-                image2 = ImageIO.read(new File("./src/khosro/model/res/row-2.png"));
-            if (count == 2)
-                image2 = ImageIO.read(new File("./src/khosro/model/res/row-3.png"));
-            if (count == 3)
-                image2 = ImageIO.read(new File("./src/khosro/model/res/row-4.png"));
-            if (count == 4)
-                image2 = ImageIO.read(new File("./src/khosro/model/res/row-5.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            image=new ImageIcon("./src/khosro/model/res/car.png");
 
     }
 
@@ -45,10 +33,6 @@ public class MapRow {
 
     public Boolean getHaveCar() {
         return haveCar;
-    }
-
-    public Image getImage2() {
-        return image2;
     }
 
     private void setXY(int count) {
@@ -130,12 +114,12 @@ public class MapRow {
         return haveZombie;
     }
 
-    public void setImage(Image image) {
+    public void setImage(ImageIcon image) {
         this.image = image;
     }
 
     public Image getImage() {
-        return image;
+        return image.getImage();
     }
 
     public int getCount() {
@@ -167,15 +151,27 @@ public class MapRow {
         for (int i = 0; i < 9; i++) {
             mapHomes.add(new MapHome(i + 1, y, height));
             mapHomes.get(i).setRow(count);
-            try {
-                mapHomes.get(i).setImage(ImageIO.read(new File("./src/khosro/model/res/" + String.valueOf(count) + "," + String.valueOf(i) + ".png")));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            mapHomes.get(i).setImage(new ImageIcon("./src/khosro/model/res/" + String.valueOf(count) + "," + String.valueOf(i) + ".png"));
+
         }
     }
 
     public void setX(int x) {
         this.x = x;
+    }
+
+    @Override
+    public String toString() {
+        return "MapRow{" +
+                "mapHomes=" + mapHomes +
+                ", image=" + image +
+                ", count=" + count +
+                ", x=" + x +
+                ", width=" + width +
+                ", y=" + y +
+                ", height=" + height +
+                ", haveZombie=" + haveZombie +
+                ", haveCar=" + haveCar +
+                '}';
     }
 }
