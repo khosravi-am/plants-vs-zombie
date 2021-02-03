@@ -1,9 +1,7 @@
 package khosro;
 
 import khosro.controller.GameController;
-import khosro.model.component.zombie.Zombies;
-import khosro.model.map.Map;
-import khosro.views.*;
+import khosro.views.MainPage;
 
 
 public class Main {
@@ -26,11 +24,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Map map = new Map();
+/*        Map map = new Map();
         GamePage gamePage = new GamePage();
         Zombies zombie = new Zombies();
 
-        GameController gameHandler = new GameController(map, gamePage, zombie);
+        GameController gameHandler = new GameController(map, gamePage, zombie);*/
 
         MainPage mainPage = new MainPage();
         while (!mainPage.getRunGame()) {
@@ -58,7 +56,7 @@ public class Main {
 
         mainPage.dispose();
 
-        gamePage.dispose();
+//        gamePage.dispose();
         System.out.println("tamam2");
         System.exit(0);
     }

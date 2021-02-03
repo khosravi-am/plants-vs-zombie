@@ -26,7 +26,7 @@ public class MainMenu {
 
     public void setGraphics2D(Graphics2D graphics2D) {
         this.graphics2D = graphics2D;
-        graphics2D.drawImage(mainPage.getMainImage(), 0, 0, 1080, 770, null);
+        draw();
         Font font = new Font("Time New Roman", Font.BOLD, 55);
         AffineTransform transform = new AffineTransform();
         transform.rotate(Math.toRadians(7), 0, 0);
@@ -34,20 +34,44 @@ public class MainMenu {
         graphics2D.setFont(driverFont);
     }
 
-    public void drawStrings() {
-        drawMenu(NEWGAME, 600, 195);
-        drawMenu(LOADGAME, 585, 305);
-        drawMenu(SCOREBOARD, 575, 400);
-        drawMenu(SETTINGS, 630, 500);
+    public void draw() {
+        graphics2D.drawImage(mainPage.getMainImage(), 0, 0, 1080, 770, null);
     }
 
-    public void drawMenu(String newGame, int i, int i2) {
-        graphics2D.drawString(newGame, i, i2);
+    public void drawStrings() {
+        drawMenu(NEWGAME, 600, 185, 65, 6);
+        drawMenu(LOADGAME, 600, 300, 55, 8);
+        drawMenu(SCOREBOARD, 575, 390, 55, 11);
+        drawMenu(SETTINGS, 630, 490, 55, 12);
+
+        drawMenu("New User", 166, 200, 30, 0);
+    }
+
+    public void drawMenu(String string, int i, int i2, int size, int radios) {
+        Font font = new Font("Matura MT Script Capitals", Font.PLAIN, size);
+        AffineTransform transform = new AffineTransform();
+        transform.rotate(Math.toRadians(radios), 0, 0);
+        Font driverFont = font.deriveFont(transform);
+        graphics2D.setFont(driverFont);
+        graphics2D.drawString(string, i, i2);
+    }
+
+    public void drawNewUser(Image image) {
+        graphics2D.drawImage(image, 300, 200, null);
     }
 
     public void drawLoadPage() {
         try {
             Image image = ImageIO.read(new File(AddressStore.LOADPAGE));
+            graphics2D.drawImage(image, 200, 150, 600, 500, null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void drawSettingPage() {
+        try {
+            Image image = ImageIO.read(new File(AddressStore.SETTINGPAGE));
             graphics2D.drawImage(image, 200, 150, 600, 500, null);
         } catch (IOException e) {
             e.printStackTrace();
@@ -82,8 +106,8 @@ public class MainMenu {
     public boolean isSettingGameMoved(MouseEvent e) {
         return e.getX() > 555 &&
                 e.getX() < 955 &&
-                e.getY() < 385 &&
-                e.getY() > 236;
+                e.getY() < 500 &&
+                e.getY() > 426;
     }
 
     public void drawFrame() {
@@ -123,5 +147,19 @@ public class MainMenu {
                 e.getX() < 412 &&
                 e.getY() < 215 &&
                 e.getY() > 170;
+    }
+
+    public boolean isCancel(MouseEvent e) {
+        return e.getX() > 560 &&
+                e.getX() < 762 &&
+                e.getY() < 467 &&
+                e.getY() > 430;
+    }
+
+    public boolean isOk(MouseEvent e) {
+        return e.getX() > 338 &&
+                e.getX() < 530 &&
+                e.getY() < 467 &&
+                e.getY() > 427;
     }
 }

@@ -5,9 +5,7 @@ import khosro.model.res.AddressStore;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
+import java.awt.event.*;
 import java.awt.image.BufferStrategy;
 
 /**
@@ -20,11 +18,12 @@ import java.awt.image.BufferStrategy;
  *
  * @author Seyed Mohammad Ghaffarian
  */
-public class MainPage extends JFrame implements MouseMotionListener, MouseListener {
+public class MainPage extends JFrame implements MouseMotionListener, MouseListener, KeyListener {
 
     /*private BufferedImage image;*/
     private ImageIcon icon;
     private Image mainImage;
+    private Image newUserField;
 
     private Boolean login;
     private Boolean settingPanel;
@@ -36,6 +35,9 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
     private boolean loadGame;
     private boolean scoreBoard;
     private boolean setting;
+    private boolean newUser;
+    private boolean userOk;
+    private boolean userCancel;
 
     private Graphics2D graphics;
     private BufferStrategy bufferStrategy;
@@ -52,13 +54,14 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
         setLocationRelativeTo(null);
         setLayout(null);
         setResizable(false);
-//        setUndecorated(true);
+        setUndecorated(true);
         setVisible(true);
         initBufferStrategy();
 
         mainMenu = new MainMenu(this);
         addMouseListener(this);
         addMouseMotionListener(this);
+        addKeyListener(this);
 
         login = false;
         settingPanel = false;
@@ -71,7 +74,10 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
         setting = false;
         scoreBoard = false;
 
+        newUser = false;
+
         mainImage = new ImageIcon(AddressStore.MAINPAGE).getImage();
+        newUserField = new ImageIcon(AddressStore.NEWUSER).getImage();
 
         graphics = (Graphics2D) bufferStrategy.getDrawGraphics();
         mainMenu.setGraphics2D(graphics);
@@ -106,19 +112,34 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
                     doRendering();
                     if (newGame) {
                         graphics.setColor(Color.white);
-                        mainMenu.drawMenu(MainMenu.NEWGAME, 600, 195);
+                        mainMenu.drawMenu(MainMenu.NEWGAME, 600, 185, 65, 6);
                     } else if (loadGame) {
                         graphics.setColor(Color.white);
-                        mainMenu.drawMenu(MainMenu.LOADGAME, 585, 305);
+                        mainMenu.drawMenu(MainMenu.LOADGAME, 600, 300, 55, 8);
                     } else if (scoreBoard) {
                         graphics.setColor(Color.white);
-                        mainMenu.drawMenu(MainMenu.SCOREBOARD, 575, 400);
+                        mainMenu.drawMenu(MainMenu.SCOREBOARD, 575, 390, 55, 11);
                     } else if (setting) {
                         graphics.setColor(Color.white);
-                        mainMenu.drawMenu(MainMenu.SETTINGS, 630, 500);
+                        mainMenu.drawMenu(MainMenu.SETTINGS, 630, 490, 55, 12);
                     } else {
                         graphics.setColor(Color.black);
                         mainMenu.drawStrings();
+                    }
+                    if (newUser) {
+                        mainMenu.drawNewUser(newUserField);
+                        if (userOk) {
+                            userOk = false;
+                            newUser = false;
+                        } else if (userCancel) {
+                            graphics.setColor(Color.black);
+                            mainMenu.draw();
+                            mainMenu.drawStrings();
+                            userCancel = false;
+                            newUser = false;
+                        }
+                    } else if (settingPanel) {
+                        mainMenu.drawSettingPage();
                     }
                 } finally {
                     // Dispose the graphics
@@ -180,12 +201,26 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
             rank = true;
         } else if (mainMenu.isSettingGameMoved(e)) {
             settingPanel = true;
+            if (!mainMenu.isSettingGameMoved(e)) {
+                settingPanel = false;
+                userCancel = true;
+            }
         } else if (mainMenu.isQuit(e)) {
             System.exit(0);
         } else if (mainMenu.isHelp(e)) {
             mainMenu.drawFrame();
         } else if (mainMenu.isNewUser(e)) {
-            
+            newUser = true;
+            System.out.println("New User Clicked.");
+        }
+        if (newUser) {
+            if (mainMenu.isCancel(e)) {
+                userCancel = true;
+                System.out.println("User Cancel is clicked");
+            } else if (mainMenu.isOk(e)) {
+                userOk = true;
+                System.out.println("User OK is clicked");
+            }
         }
     }
 
@@ -284,5 +319,25 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
                 graphics.setColor(Color.black);
             }
         }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent keyEvent) {
+        System.out.println(keyEvent.getKeyChar() + " Typed.");
+        if (newUser) {
+            String input = Character.toString(keyEvent.getKeyChar());
+            mainMenu.drawMenu(input, 200, 200, 30, 0);
+            System.out.println(input + " Typed.");
+        }
+    }
+
+    @Override
+    public void keyPressed(KeyEvent keyEvent) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent keyEvent) {
+
     }
 }
