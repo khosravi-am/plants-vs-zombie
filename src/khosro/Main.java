@@ -1,6 +1,9 @@
 package khosro;
 
 import khosro.controller.GameController;
+import khosro.model.component.zombie.Zombies;
+import khosro.model.map.Map;
+import khosro.views.GamePage;
 import khosro.views.MainPage;
 
 
@@ -20,17 +23,49 @@ public class Main {
             System.currentTimeMillis(),
             System.currentTimeMillis(),
             System.currentTimeMillis()};
+    private static MainPage mainPage;
 
 
     public static void main(String[] args) {
+        mainPage = new MainPage();
 
-/*        Map map = new Map();
+        mainPageShow();
+
+        mainPage.setVisible(false);
+
+        Map map = new Map();
         GamePage gamePage = new GamePage();
         Zombies zombie = new Zombies();
 
-        GameController gameHandler = new GameController(map, gamePage, zombie);*/
+        GameController gameHandler = new GameController(map, gamePage, zombie);
 
-        MainPage mainPage = new MainPage();
+        start7 = System.currentTimeMillis();
+
+        GamePageShow(gameHandler);
+
+        gamePage.setVisible(false);
+        mainPage.setVisible(true);
+
+        mainPageShow();
+
+        mainPage.dispose();
+        gamePage.dispose();
+        System.out.println("End 2");
+        System.exit(0);
+    }
+
+    public static void GamePageShow(GameController gameHandler) {
+        while (!gameHandler.getGameOver()) {
+            gameHandler.render(cf, cc, cp, f, p, l);
+            if (!gameHandler.getMenu()) {
+                check2(gameHandler);
+                check();
+                level();
+            }
+        }
+    }
+
+    public static void mainPageShow() {
         while (!mainPage.getRunGame()) {
             try {
                 long start = System.currentTimeMillis();
@@ -41,24 +76,6 @@ public class Main {
             } catch (InterruptedException ignore) {
             }
         }
-
-//        start7 = System.currentTimeMillis();
-//        while (!gameHandler.getGameOver()) {
-//            long start = System.currentTimeMillis();
-//            gameHandler.render(cf, cc, cp, f, p, l);
-//            if (!gameHandler.getMenu()) {
-//                check2(gameHandler);
-//                check();
-//                level();
-//            }
-//        }
-
-
-        mainPage.dispose();
-
-//        gamePage.dispose();
-        System.out.println("tamam2");
-        System.exit(0);
     }
 
     private static void check2(GameController gameHandler) {

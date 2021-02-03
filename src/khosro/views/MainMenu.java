@@ -3,11 +3,9 @@ package khosro.views;
 import khosro.model.res.AddressStore;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.geom.AffineTransform;
-import java.awt.image.BufferStrategy;
 import java.io.File;
 import java.io.IOException;
 
@@ -60,6 +58,15 @@ public class MainMenu {
         graphics2D.drawImage(image, 300, 200, null);
     }
 
+    public void drawHelp() {
+        try {
+            Image image = ImageIO.read(new File(AddressStore.HELP));
+            graphics2D.drawImage(image, 200, 150, null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void drawLoadPage() {
         try {
             Image image = ImageIO.read(new File(AddressStore.LOADPAGE));
@@ -110,24 +117,6 @@ public class MainMenu {
                 e.getY() > 426;
     }
 
-    public void drawFrame() {
-        JFrame frame = new JFrame();
-        frame.setSize(400, 400);
-        frame.setUndecorated(true);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-        frame.createBufferStrategy(3);
-        BufferStrategy strategy = frame.getBufferStrategy();
-        Graphics2D graphics2D = (Graphics2D) strategy.getDrawGraphics();
-        try {
-            Image image = ImageIO.read(new File(AddressStore.SCOREBOARDPAGE));
-            graphics2D.drawImage(image, 0, 0, 400, 400, null);
-            strategy.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public boolean isQuit(MouseEvent e) {
         return e.getX() > 951 &&
                 e.getX() < 1050 &&
@@ -156,10 +145,17 @@ public class MainMenu {
                 e.getY() > 430;
     }
 
-    public boolean isOk(MouseEvent e) {
+    public boolean isUserOk(MouseEvent e) {
         return e.getX() > 338 &&
                 e.getX() < 530 &&
                 e.getY() < 467 &&
                 e.getY() > 427;
+    }
+
+    public boolean isSettingOK(MouseEvent e) {
+        return e.getX() > 275 &&
+                e.getX() < 726 &&
+                e.getY() < 627 &&
+                e.getY() > 554;
     }
 }

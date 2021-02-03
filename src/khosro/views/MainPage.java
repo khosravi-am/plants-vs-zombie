@@ -38,6 +38,7 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
     private boolean newUser;
     private boolean userOk;
     private boolean userCancel;
+    private boolean help;
 
     private Graphics2D graphics;
     private BufferStrategy bufferStrategy;
@@ -110,36 +111,19 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
                 try {
                     mainMenu.setGraphics2D(graphics);
                     doRendering();
-                    if (newGame) {
-                        graphics.setColor(Color.white);
-                        mainMenu.drawMenu(MainMenu.NEWGAME, 600, 185, 65, 6);
-                    } else if (loadGame) {
-                        graphics.setColor(Color.white);
-                        mainMenu.drawMenu(MainMenu.LOADGAME, 600, 300, 55, 8);
-                    } else if (scoreBoard) {
-                        graphics.setColor(Color.white);
-                        mainMenu.drawMenu(MainMenu.SCOREBOARD, 575, 390, 55, 11);
-                    } else if (setting) {
-                        graphics.setColor(Color.white);
-                        mainMenu.drawMenu(MainMenu.SETTINGS, 630, 490, 55, 12);
-                    } else {
-                        graphics.setColor(Color.black);
-                        mainMenu.drawStrings();
-                    }
+                    writeMenu();
                     if (newUser) {
                         mainMenu.drawNewUser(newUserField);
-                        if (userOk) {
-                            userOk = false;
-                            newUser = false;
-                        } else if (userCancel) {
-                            graphics.setColor(Color.black);
-                            mainMenu.draw();
-                            mainMenu.drawStrings();
-                            userCancel = false;
-                            newUser = false;
-                        }
+                        okChecker();
                     } else if (settingPanel) {
                         mainMenu.drawSettingPage();
+                        if (help) {
+                            mainMenu.drawHelp();
+                        }
+                    } else if (help) {
+                        mainMenu.drawHelp();
+                    } else {
+                        init();
                     }
                 } finally {
                     // Dispose the graphics
@@ -156,6 +140,45 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
 
             // Repeat the rendering if the drawing buffer was lost
         } while (bufferStrategy.contentsLost());
+    }
+
+    public void init() {
+        mainMenu.draw();
+        graphics.setColor(Color.black);
+        doRendering();
+        writeMenu();
+    }
+
+    public void okChecker() {
+        if (userOk) {
+            userOk = false;
+            newUser = false;
+        } else if (userCancel) {
+            graphics.setColor(Color.black);
+            mainMenu.draw();
+            mainMenu.drawStrings();
+            userCancel = false;
+            newUser = false;
+        }
+    }
+
+    public void writeMenu() {
+        if (newGame) {
+            graphics.setColor(Color.white);
+            mainMenu.drawMenu(MainMenu.NEWGAME, 600, 185, 65, 6);
+        } else if (loadGame) {
+            graphics.setColor(Color.white);
+            mainMenu.drawMenu(MainMenu.LOADGAME, 600, 300, 55, 8);
+        } else if (scoreBoard) {
+            graphics.setColor(Color.white);
+            mainMenu.drawMenu(MainMenu.SCOREBOARD, 575, 390, 55, 11);
+        } else if (setting) {
+            graphics.setColor(Color.white);
+            mainMenu.drawMenu(MainMenu.SETTINGS, 630, 490, 55, 12);
+        } else {
+            graphics.setColor(Color.black);
+            mainMenu.drawStrings();
+        }
     }
 
     /**
@@ -200,15 +223,12 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
         } else if (mainMenu.isScoreBoardGameMoved(e)) {
             rank = true;
         } else if (mainMenu.isSettingGameMoved(e)) {
-            settingPanel = true;
-            if (!mainMenu.isSettingGameMoved(e)) {
-                settingPanel = false;
-                userCancel = true;
-            }
+            settingPanel = !mainMenu.isSettingOK(e);
+            System.out.println("OK pressed.");
         } else if (mainMenu.isQuit(e)) {
             System.exit(0);
         } else if (mainMenu.isHelp(e)) {
-            mainMenu.drawFrame();
+            help = !help;
         } else if (mainMenu.isNewUser(e)) {
             newUser = true;
             System.out.println("New User Clicked.");
@@ -217,7 +237,7 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
             if (mainMenu.isCancel(e)) {
                 userCancel = true;
                 System.out.println("User Cancel is clicked");
-            } else if (mainMenu.isOk(e)) {
+            } else if (mainMenu.isUserOk(e)) {
                 userOk = true;
                 System.out.println("User OK is clicked");
             }

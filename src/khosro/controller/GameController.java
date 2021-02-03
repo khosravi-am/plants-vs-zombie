@@ -39,6 +39,7 @@ public class GameController implements MouseListener, MouseMotionListener {
     private Graphics2D g2d;
     private GamePage gamePage;
     private ExecutorService executorService;
+
     Long start, gameStart, t;
     private int mouseX, mouseY, round = 0, type = 1;
     /*private BufferedImage image;*/
