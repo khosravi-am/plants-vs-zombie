@@ -1,10 +1,14 @@
 package khosro;
 
 import khosro.controller.GameController;
+import khosro.controller.Save;
+import khosro.model.User;
 import khosro.model.component.zombie.Zombies;
 import khosro.model.map.Map;
-import khosro.views.GamePage;
-import khosro.views.MainPage;
+import khosro.views.*;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 
 public class Main {
@@ -14,59 +18,20 @@ public class Main {
     private static int cp = 85;
     private static int f = 85;
     private static int p = 85;
+    public static Boolean mainP = true, game = false;
+    private static String username = "khosro";
+    public static String filename = "";
+    public static Boolean b = false;
     private static int l = 0, type = 1;
-    public static Boolean card[] = {false, false, false, false, false};
+    public static Boolean card[] = {false, false, false, false, false}, game2 = false, main2 = false;
     private static long start7;
-    private static long start[] = {
-            System.currentTimeMillis(),
-            System.currentTimeMillis(),
-            System.currentTimeMillis(),
-            System.currentTimeMillis(),
-            System.currentTimeMillis()};
-    private static MainPage mainPage;
+    private static long start[] = {System.currentTimeMillis(), System.currentTimeMillis(), System.currentTimeMillis(), System.currentTimeMillis(), System.currentTimeMillis()};
 
 
     public static void main(String[] args) {
+
+        MainPage mainPage = null;
         mainPage = new MainPage();
-
-        mainPageShow();
-
-        mainPage.setVisible(false);
-
-        Map map = new Map();
-        GamePage gamePage = new GamePage();
-        Zombies zombie = new Zombies();
-
-        GameController gameHandler = new GameController(map, gamePage, zombie);
-
-        start7 = System.currentTimeMillis();
-
-        GamePageShow(gameHandler);
-
-        gamePage.setVisible(false);
-        mainPage.setVisible(true);
-
-        mainPage.setRunGame(false);
-        mainPageShow();
-
-        mainPage.dispose();
-        gamePage.dispose();
-        System.out.println("End 2");
-        System.exit(0);
-    }
-
-    public static void GamePageShow(GameController gameHandler) {
-        while (!gameHandler.getGameOver()) {
-            gameHandler.render(cf, cc, cp, f, p, l);
-            if (!gameHandler.getMenu()) {
-                check2(gameHandler);
-                check();
-                level();
-            }
-        }
-    }
-
-    public static void mainPageShow() {
         while (!mainPage.getRunGame()) {
             try {
                 long start = System.currentTimeMillis();
@@ -74,49 +39,122 @@ public class Main {
                 long delay = (1000 / FPS) - (System.currentTimeMillis() - start);
                 if (delay > 0)
                     Thread.sleep(delay);
-            } catch (InterruptedException ignore) {
+
+            } catch (InterruptedException ex) {
             }
         }
+        mainP = false;
+        // Initialize the global thread-pool
+        // ThreadPool.init();
+
+        // Show the game menu ...
+
+        // After the player clicks 'PLAY' ...
+        GamePage gamePage = null;
+        GameController gameHandler = null;
+
+        User user = null;
+        /*gamePage = new GamePage();
+        if (b)
+            user = Save.loadGame(filename);
+        else
+            user = new User(username);
+
+        if (game = true) {
+            gameHandler = new GameController(gamePage, user);
+            game = false;
+            game2 = true;
+        }*/
+        start7 = System.currentTimeMillis();
+        while (true) {
+            try {
+                long start = System.currentTimeMillis();
+                if (game) {
+                    mainPage.dispose();
+                    mainPage = null;
+                    game = false;
+                    gamePage = new GamePage();
+                    if (b) {
+                        user = Save.loadGame(filename);
+                        b=false;
+                    }
+                    else
+                        user = new User(username);
+                    gameHandler = new GameController(gamePage, user);
+
+                    game2 = true;
+                    main2 = false;
+                    mainP=false;
+                }
+
+                //else mainPage.setVisible(false);
+                if (game2) {
+                    gameHandler.render(cf, cc, cp, f, p, l);
+                    if (!gameHandler.getMenu()) {
+
+                        check2(gameHandler);
+                        check();
+                        level();
+                    }
+                }
+
+                if (mainP) {
+                    gamePage.dispose();
+                    gameHandler = null;
+                    user = null;
+                    mainPage = new MainPage();
+                    mainP = false;
+                    main2 = true;
+                    game2 = false;
+                }
+                if (main2) {
+                    mainPage.render();
+                   // game2=false;
+                }
+
+
+                long delay = (1000 / FPS) - (System.currentTimeMillis() - start);
+                if (delay > 0)
+                    Thread.sleep(delay);
+
+                if (gameHandler.getGameOver())
+                    break;
+
+            } catch (InterruptedException ex) {
+
+            } catch (NullPointerException e) {
+
+            }
+        }
+
+
+        gamePage.dispose();
+        System.out.println("tamam2");
+        System.exit(0);
+    }
+
+    private static int check4(GameController gameHandler, String str, int i, int j, int k) {
+        if (!gameHandler.getPlant().isUse() && gameHandler.getPlant().getClass().getSimpleName().equals(str) && card[i]) {
+            card[i] = false;
+            if (k == 0)
+                start[j] = System.currentTimeMillis();
+            k = 85;
+            gameHandler.setPlant(null);
+        }
+        return k;
     }
 
     private static void check2(GameController gameHandler) {
         try {
-            if (!gameHandler.getPlant().isUse() && gameHandler.getPlant().getClass().getSimpleName().equals("SunFlower") && card[0]) {
-                card[0] = false;
-                if (cf == 0)
-                    start[0] = System.currentTimeMillis();
-                cf = 85;
-                gameHandler.setPlant(null);
-            }
-            if (!gameHandler.getPlant().isUse() && gameHandler.getPlant().getClass().getSimpleName().equals("Peashooter") && card[1]) {
-                card[1] = false;
-                if (cp == 0)
-                    start[1] = System.currentTimeMillis();
-                cp = 85;
-                gameHandler.setPlant(null);
-            }
-            if (!gameHandler.getPlant().isUse() && gameHandler.getPlant().getClass().getSimpleName().equals("SnowPea") && card[2]) {
-                card[2] = false;
-                if (f == 0)
-                    start[2] = System.currentTimeMillis();
-                f = 85;
-                gameHandler.setPlant(null);
-            }
-            if (!gameHandler.getPlant().isUse() && gameHandler.getPlant().getClass().getSimpleName().equals("Cherry") && card[3]) {
-                card[3] = false;
-                if (cc == 0)
-                    start[3] = System.currentTimeMillis();
-                cc = 85;
-                gameHandler.setPlant(null);
-            }
-            if (!gameHandler.getPlant().isUse() && gameHandler.getPlant().getClass().getSimpleName().equals("Potato") && card[4]) {
-                card[4] = false;
-                if (p == 0)
-                    start[4] = System.currentTimeMillis();
-                p = 85;
-                gameHandler.setPlant(null);
-            }
-        } catch (NullPointerException ignore) {
+
+            cf = check4(gameHandler, "SunFlower", 0, 0, cf);
+            cp = check4(gameHandler, "Peashooter", 1, 1, cp);
+            f = check4(gameHandler, "SnowPea", 2, 2, f);
+            cc = check4(gameHandler, "Cherry", 3, 3, cc);
+            p = check4(gameHandler, "Potato", 4, 4, p);
+
+        } catch (NullPointerException e) {
+
         }
 
     }
