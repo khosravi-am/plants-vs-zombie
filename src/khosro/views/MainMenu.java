@@ -10,8 +10,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class MainMenu {
-    public static final String NEWGAME = "New Game";
-    public static final String LOADGAME = "Load game";
+    public static final String NEW_GAME = "New Game";
+    public static final String LOAD_GAME = "Load game";
     public static final String SCOREBOARD = "Score Board";
     public static final String SETTINGS = "Settings";
 
@@ -37,8 +37,8 @@ public class MainMenu {
     }
 
     public void drawStrings() {
-        drawMenu(NEWGAME, 600, 185, 65, 6);
-        drawMenu(LOADGAME, 600, 300, 55, 8);
+        drawMenu(NEW_GAME, 600, 185, 65, 6);
+        drawMenu(LOAD_GAME, 600, 300, 55, 8);
         drawMenu(SCOREBOARD, 575, 390, 55, 11);
         drawMenu(SETTINGS, 630, 490, 55, 12);
 
@@ -69,7 +69,7 @@ public class MainMenu {
 
     public void drawLoadPage() {
         try {
-            Image image = ImageIO.read(new File(AddressStore.LOADPAGE));
+            Image image = ImageIO.read(new File(AddressStore.LOAD_PAGE));
             graphics2D.drawImage(image, 200, 150, 600, 500, null);
         } catch (IOException e) {
             e.printStackTrace();
@@ -78,7 +78,7 @@ public class MainMenu {
 
     public void drawSettingPage() {
         try {
-            Image image = ImageIO.read(new File(AddressStore.SETTINGPAGE));
+            Image image = ImageIO.read(new File(AddressStore.SETTING_PAGE));
             graphics2D.drawImage(image, 200, 150, 600, 500, null);
         } catch (IOException e) {
             e.printStackTrace();

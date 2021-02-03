@@ -1,4 +1,3 @@
-/*** In The Name of Allah ***/
 package khosro.views;
 
 import khosro.model.res.AddressStore;
@@ -9,6 +8,7 @@ import java.awt.event.*;
 import java.awt.image.BufferStrategy;
 
 /**
+ * In The Name of Allah
  * The window on which the rendering is performed.
  * This example uses the modern BufferStrategy approach for double-buffering,
  * actually it performs triple-buffering!
@@ -20,8 +20,6 @@ import java.awt.image.BufferStrategy;
  */
 public class MainPage extends JFrame implements MouseMotionListener, MouseListener, KeyListener {
 
-    /*private BufferedImage image;*/
-    private ImageIcon icon;
     private Image mainImage;
     private Image newUserField;
 
@@ -47,7 +45,8 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
 
     public MainPage() {
         super("Plants vs. Zombie");
-        icon = new ImageIcon(AddressStore.GAMEICONE);
+        /*private BufferedImage image;*/
+        ImageIcon icon = new ImageIcon(AddressStore.GAME_ICON);
         super.setIconImage(icon.getImage());
         super.setSize(1080, 770);
 
@@ -77,8 +76,8 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
 
         newUser = false;
 
-        mainImage = new ImageIcon(AddressStore.MAINPAGE).getImage();
-        newUserField = new ImageIcon(AddressStore.NEWUSER).getImage();
+        mainImage = new ImageIcon(AddressStore.MAIN_PAGE).getImage();
+        newUserField = new ImageIcon(AddressStore.NEW_USER).getImage();
 
         graphics = (Graphics2D) bufferStrategy.getDrawGraphics();
         mainMenu.setGraphics2D(graphics);
@@ -165,10 +164,10 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
     public void writeMenu() {
         if (newGame) {
             graphics.setColor(Color.white);
-            mainMenu.drawMenu(MainMenu.NEWGAME, 600, 185, 65, 6);
+            mainMenu.drawMenu(MainMenu.NEW_GAME, 600, 185, 65, 6);
         } else if (loadGame) {
             graphics.setColor(Color.white);
-            mainMenu.drawMenu(MainMenu.LOADGAME, 600, 300, 55, 8);
+            mainMenu.drawMenu(MainMenu.LOAD_GAME, 600, 300, 55, 8);
         } else if (scoreBoard) {
             graphics.setColor(Color.white);
             mainMenu.drawMenu(MainMenu.SCOREBOARD, 575, 390, 55, 11);
@@ -337,8 +336,6 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
                 setting = true;
             } else if (mainMenu.isQuit(e)) {
                 mainMenu.drawQuit();
-            } else if (mainMenu.isHelp(e)) {
-                //TODO complete this field.
             } else {
                 graphics.setColor(Color.black);
             }

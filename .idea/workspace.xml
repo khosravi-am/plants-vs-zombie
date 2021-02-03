@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="86cfef64-b1d5-4294-a8cf-645030ce6431" name="Default Changelist" comment="">
+    <list default="true" id="86cfef64-b1d5-4294-a8cf-645030ce6431" name="Default Changelist" comment="Project Update.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/khosro/model/res/AddressStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/model/res/AddressStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/khosro/views/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/views/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/khosro/views/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/khosro/views/MainPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +55,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -116,6 +123,7 @@
       <workItem from="1612265683529" duration="3444000" />
       <workItem from="1612337900392" duration="1271000" />
       <workItem from="1612339931952" duration="4231000" />
+      <workItem from="1612344592538" duration="772000" />
     </task>
     <task id="LOCAL-00001" summary="Project Update.">
       <created>1611506790795</created>
@@ -173,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612343765137</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Project Update.">
+      <created>1612344635286</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1612344635286</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,10 +233,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="421" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.834@0.0.1536.834" timestamp="1611469318082" />
-    <state x="383" y="0" key="CommitChangelistDialog2" timestamp="1612343763990">
+    <state x="383" y="0" key="CommitChangelistDialog2" timestamp="1612344965414">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="383" y="0" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1612343763990" />
+    <state x="383" y="0" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1612344965414" />
     <state x="93" y="93" width="1350" height="648" key="DiffContextDialog" timestamp="1612237522947">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -230,26 +245,26 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="549" y="173" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1611749254017" />
-    <state width="1493" height="255" key="GridCell.Tab.0.bottom" timestamp="1612344195520">
+    <state width="1493" height="205" key="GridCell.Tab.0.bottom" timestamp="1612344954166">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1323" height="192" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1610544731884" />
-    <state width="1493" height="255" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1612344195520" />
-    <state width="1493" height="255" key="GridCell.Tab.0.center" timestamp="1612344195520">
+    <state width="1493" height="205" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1612344954166" />
+    <state width="1493" height="205" key="GridCell.Tab.0.center" timestamp="1612344954166">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1323" height="192" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1610544731884" />
-    <state width="1493" height="255" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1612344195520" />
-    <state width="1493" height="255" key="GridCell.Tab.0.left" timestamp="1612344195520">
+    <state width="1493" height="205" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1612344954166" />
+    <state width="1493" height="205" key="GridCell.Tab.0.left" timestamp="1612344954163">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1323" height="192" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1610544731884" />
-    <state width="1493" height="255" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1612344195520" />
-    <state width="1493" height="255" key="GridCell.Tab.0.right" timestamp="1612344195520">
+    <state width="1493" height="205" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1612344954163" />
+    <state width="1493" height="205" key="GridCell.Tab.0.right" timestamp="1612344954166">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1323" height="192" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1610544731884" />
-    <state width="1493" height="255" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1612344195520" />
+    <state width="1493" height="205" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1612344954166" />
     <state width="1493" height="255" key="GridCell.Tab.1.bottom" timestamp="1612344195523">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -290,6 +305,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="361" y="147" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1612344139960" />
+    <state x="498" y="307" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1612344921226">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="498" y="307" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.834@0.0.1536.834" timestamp="1612344921226" />
     <state x="577" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1612237309500">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
