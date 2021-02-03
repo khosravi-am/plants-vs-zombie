@@ -46,6 +46,7 @@ public class Main {
         gamePage.setVisible(false);
         mainPage.setVisible(true);
 
+        mainPage.setRunGame(false);
         mainPageShow();
 
         mainPage.dispose();

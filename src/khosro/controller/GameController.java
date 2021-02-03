@@ -400,7 +400,6 @@ public class GameController implements MouseListener, MouseMotionListener {
 
     }
 
-
     private void paintSun(Plants sun, Plants sun2) {
 
 
@@ -532,7 +531,6 @@ public class GameController implements MouseListener, MouseMotionListener {
 
     }
 
-
     public Boolean getGameOver() {
         return gameOver;
     }
@@ -554,7 +552,9 @@ public class GameController implements MouseListener, MouseMotionListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         System.out.println("x:" + e.getX() + " y:" + e.getY());
-
+        if (exit) {
+            gameOver = true;
+        }
     }
 
     /**
@@ -630,7 +630,6 @@ public class GameController implements MouseListener, MouseMotionListener {
         return clickSunflower;
     }
 
-
     public Plants getPlant() {
         return plant;
     }
@@ -695,19 +694,10 @@ public class GameController implements MouseListener, MouseMotionListener {
     public void mouseMoved(MouseEvent e) {
         mouseX = e.getX();
         mouseY = e.getY();
-        if (clickMenu && e.getX() > 418 && e.getY() > 381 && e.getX() < 633 && e.getY() < 422)
-            restart = true;
-        else restart = false;
-        if (clickMenu && e.getX() > 418 && e.getY() > 431 && e.getX() < 633 && e.getY() < 471)
-            save = true;
-        else save = false;
-        if (clickMenu && e.getX() > 418 && e.getY() > 479 && e.getX() < 633 && e.getY() < 519)
-            exit = true;
-        else exit = false;
-        if (clickMenu && e.getX() > 351 && e.getY() > 556 && e.getX() < 708 && e.getY() < 631)
-            resume = true;
-        else resume = false;
-
+        restart = clickMenu && e.getX() > 418 && e.getY() > 381 && e.getX() < 633 && e.getY() < 422;
+        save = clickMenu && e.getX() > 418 && e.getY() > 431 && e.getX() < 633 && e.getY() < 471;
+        exit = clickMenu && e.getX() > 418 && e.getY() > 479 && e.getX() < 633 && e.getY() < 519;
+        resume = clickMenu && e.getX() > 351 && e.getY() > 556 && e.getX() < 708 && e.getY() < 631;
 
     }
 }

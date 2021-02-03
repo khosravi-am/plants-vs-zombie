@@ -192,6 +192,10 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
         return mainImage;
     }
 
+    public void setRunGame(Boolean runGame) {
+        this.runGame = runGame;
+    }
+
     @Override
     public Graphics2D getGraphics() {
         return graphics;
