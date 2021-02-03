@@ -1,6 +1,7 @@
 package khosro.controller;
 
 import khosro.Main;
+import khosro.model.User;
 import khosro.model.component.Sun;
 import khosro.model.component.plant.*;
 import khosro.model.component.zombie.Zombie;
@@ -9,69 +10,52 @@ import khosro.model.map.Map;
 import khosro.model.map.MapHome;
 import khosro.views.GamePage;
 
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.awt.image.BufferStrategy;
 import java.util.concurrent.ExecutorService;
+import java.awt.image.BufferStrategy;
 import java.util.concurrent.Executors;
 
+import static java.lang.Thread.sleep;
+
 public class GameController implements MouseListener, MouseMotionListener {
-    private Boolean clickPea = false;
-    private Boolean clickSunflower = false;
-    private Boolean gameOver = false;
-    private Boolean clickFreeze = false;
-    private Boolean clickPotato = false;
-    private Boolean clickCherry = false;
-    private Boolean cherry = false;
-    private Boolean over = false;
-    private Boolean resume = false;
-    private Boolean save = false;
-    private Boolean exit = false;
-    private Boolean restart = false;
+    private Boolean clickPea = false, clickSunflower = false, gameOver = false, clickFreeze = false, clickPotato = false, clickCherry = false, cherry = false, over = false, resume = false, save = false, exit = false, restart = false;
     private Map map;
     private Plants plant;
     private Sun sun;
     private Zombies zombie;
     private Zombie zombies;
+    private User user;
     private Graphics2D g2d;
+
     private GamePage gamePage;
     private ExecutorService executorService;
-
     Long start, gameStart, t;
     private int mouseX, mouseY, round = 0, type = 1;
-    /*private BufferedImage image;*/
-
     private BufferStrategy bufferStrategy;
     private boolean clickShovel = false;
     private boolean car[] = {false, false, false, false, false};
-    private long startCar;
     private boolean win = false;
     private boolean clickMenu = false;
 
-    public GameController(Map map, GamePage gamePage, Zombies zombie) {
-        this.map = map;
-        this.zombie = zombie;
+    public GameController(GamePage gamePage, User user) {
+        this.user = user;
+        map = user.getMap();
+        zombie = user.getZombies();
         this.gamePage = gamePage;
         start = System.currentTimeMillis();
         gameStart = System.currentTimeMillis();
         gamePage.addMouseListener(this);
         gamePage.addMouseMotionListener(this);
         executorService = Executors.newFixedThreadPool(10);
-
+        Save.setFileName();
         setImage();
         initBufferStrategy();
-        //(addMouseListener();
     }
-
-    private void addMouseListener() {
-      /*  for (int i=0;i<5;i++)
-            for (int j=0;j<9;j++)
-      */          //map.getMapRows().get(i).getMapHomes().get(j).addMouseListener(this);
-    }
-
 
     /**
      * This must be called once after the JFrame is shown:
@@ -143,20 +127,36 @@ public class GameController implements MouseListener, MouseMotionListener {
                     }
                     if (over) {
                         g2d.drawImage(new ImageIcon("./src/khosro/model/res/gameOver.jpg").getImage(), 0, 0, 1080, 770, null);
+                        if (type == 1)
+                            user.setScore(user.getScore() - 1);
+                        else
+                            user.setScore(user.getScore() - 3);
+
                         g2d.setColor(Color.GREEN);
                         g2d.setFont(g2d.getFont().deriveFont(60.0f));
-                        g2d.drawString(String.valueOf(gamePage.getSunNum()), 600, 730);
-                        if (System.currentTimeMillis() - start > 10000)
+                        g2d.drawString(String.valueOf(user.getScore()), 600, 730);
+                        if (System.currentTimeMillis() - start > 20000) {
                             gameOver = true;
+                            executorService.execute(user.run(user));
+                        }
                     } else if (win && !map.getMapRows().get(0).getHaveZombie() && !map.getMapRows().get(1).getHaveZombie() && !map.getMapRows().get(2).getHaveZombie() && !map.getMapRows().get(3).getHaveZombie() && !map.getMapRows().get(4).getHaveZombie()) {
                         g2d.drawImage(new ImageIcon("./src/khosro/model/res/background.jpg").getImage(), 0, 0, 1080, 770, null);
                         g2d.setColor(Color.BLACK);
                         g2d.setFont(g2d.getFont().deriveFont(90.0f));
                         System.out.println("bordi");
-                        g2d.drawString("WIN", 600, 430);
+                        g2d.drawString("WIN", 450, 430);
+                        if (type == 1)
+                            user.setScore(user.getScore() + 3);
+                        else
+                            user.setScore(user.getScore() + 10);
+                        g2d.setColor(Color.GREEN);
+                        g2d.setFont(g2d.getFont().deriveFont(60.0f));
+                        g2d.drawString("Score:  " + user.getScore(), 450, 500);
 
-                        if (System.currentTimeMillis() - start > 60000)
+                        if (System.currentTimeMillis() - start > 20000) {
                             gameOver = true;
+                            executorService.execute(user.run(user));
+                        }
                     } else {
                         if (l == 6)
                             round = 1;
@@ -166,6 +166,7 @@ public class GameController implements MouseListener, MouseMotionListener {
                             round = 3;
                         gamePage.paintBack(g2d);
                         gamePage.setRows(g2d, map.getMapRows());
+                        gamePage.setSunNum(map.getSunNum());
                         gamePage.paintMenu(g2d);
                         gamePage.delayCardFlower(g2d, cf);
                         gamePage.delayCardCherry(g2d, cc);
@@ -400,6 +401,7 @@ public class GameController implements MouseListener, MouseMotionListener {
 
     }
 
+
     private void paintSun(Plants sun, Plants sun2) {
 
 
@@ -419,7 +421,7 @@ public class GameController implements MouseListener, MouseMotionListener {
             ((Sun) sun).setSun(false);
             ((Sun) sun).setClick(false);
             ((Sun) sun).setOver(true);
-            gamePage.setSunNum(gamePage.getSunNum() + 25);
+            map.setSunNum(map.getSunNum() + 25);
 
         }
     }
@@ -531,6 +533,7 @@ public class GameController implements MouseListener, MouseMotionListener {
 
     }
 
+
     public Boolean getGameOver() {
         return gameOver;
     }
@@ -552,9 +555,7 @@ public class GameController implements MouseListener, MouseMotionListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         System.out.println("x:" + e.getX() + " y:" + e.getY());
-        if (exit) {
-            gameOver = true;
-        }
+
     }
 
     /**
@@ -564,6 +565,9 @@ public class GameController implements MouseListener, MouseMotionListener {
      */
     @Override
     public void mousePressed(MouseEvent e) {
+        if (clickMenu && e.getX() > 418 && e.getY() > 431 && e.getX() < 633 && e.getY() < 471)
+            Save.saveGame(user);
+
         if (clickMenu && e.getX() > 351 && e.getY() > 556 && e.getX() < 708 && e.getY() < 631)
             clickMenu = false;
         if (e.getX() > 620 && e.getY() > 40 && e.getX() < 696 && e.getY() < 110)
@@ -585,6 +589,8 @@ public class GameController implements MouseListener, MouseMotionListener {
             checkHome(e);
         if (sun != null && e.getX() > sun.getX() && e.getY() > sun.getY() && e.getX() < sun.getX() + 50 && e.getY() < sun.getY() + 50)
             executorService.execute(sun.dispose());
+        if (clickMenu && e.getX() > 418 && e.getY() > 479 && e.getX() < 633 && e.getY() < 519)
+            Main.mainP=true;
 
 
     }
@@ -607,7 +613,7 @@ public class GameController implements MouseListener, MouseMotionListener {
                                 plant.setY(map.getMapRows().get(i).getMapHomes().get(j).getY());
                                 map.getMapRows().get(i).getMapHomes().get(j).setPlant(plant);
                                 map.getMapRows().get(i).getMapHomes().get(j).getPlant().setBornTime(System.currentTimeMillis());
-                                gamePage.setSunNum(gamePage.getSunNum() - map.getMapRows().get(i).getMapHomes().get(j).getPlant().getCost());
+                                map.setSunNum(map.getSunNum() - map.getMapRows().get(i).getMapHomes().get(j).getPlant().getCost());
 
 
                             }
@@ -629,6 +635,7 @@ public class GameController implements MouseListener, MouseMotionListener {
     public Boolean getClickSunflower() {
         return clickSunflower;
     }
+
 
     public Plants getPlant() {
         return plant;
@@ -694,10 +701,19 @@ public class GameController implements MouseListener, MouseMotionListener {
     public void mouseMoved(MouseEvent e) {
         mouseX = e.getX();
         mouseY = e.getY();
-        restart = clickMenu && e.getX() > 418 && e.getY() > 381 && e.getX() < 633 && e.getY() < 422;
-        save = clickMenu && e.getX() > 418 && e.getY() > 431 && e.getX() < 633 && e.getY() < 471;
-        exit = clickMenu && e.getX() > 418 && e.getY() > 479 && e.getX() < 633 && e.getY() < 519;
-        resume = clickMenu && e.getX() > 351 && e.getY() > 556 && e.getX() < 708 && e.getY() < 631;
+        if (clickMenu && e.getX() > 418 && e.getY() > 381 && e.getX() < 633 && e.getY() < 422)
+            restart = true;
+        else restart = false;
+        if (clickMenu && e.getX() > 418 && e.getY() > 431 && e.getX() < 633 && e.getY() < 471)
+            save = true;
+        else save = false;
+        if (clickMenu && e.getX() > 418 && e.getY() > 479 && e.getX() < 633 && e.getY() < 519)
+            exit = true;
+        else exit = false;
+        if (clickMenu && e.getX() > 351 && e.getY() > 556 && e.getX() < 708 && e.getY() < 631)
+            resume = true;
+        else resume = false;
+
 
     }
 }
