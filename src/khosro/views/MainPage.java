@@ -1,11 +1,14 @@
 package khosro.views;
 
+import khosro.Main;
 import khosro.model.res.AddressStore;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferStrategy;
+import java.io.File;
 
 /**
  * In The Name of Allah
@@ -27,7 +30,8 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
     private Boolean settingPanel;
     private Boolean rank;
     private Boolean runGame;
-    private Boolean loadGameOption;
+    private Boolean loadGameOption = false;
+    private Boolean loadOk = false;
 
     private boolean newGame;
     private boolean loadGame;
@@ -42,6 +46,8 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
     private BufferStrategy bufferStrategy;
 
     private MainMenu mainMenu;
+    private boolean[] click = {false, false, false, false, false, false, false};
+    private boolean[] move = {false, false, false, false, false, false, false};
 
     public MainPage() {
         super("Plants vs. Zombie");
@@ -122,6 +128,36 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
                         mainMenu.drawHelp();
                     } else if (rank) {
                         mainMenu.drawScoreBoard();
+                    } else if (loadGameOption) {
+                        mainMenu.drawLoadPage();
+                        File folder = new File("./game/");
+                        File[] listOfFiles = folder.listFiles();
+                        Font font = new Font("Time New Roman", Font.BOLD, 20);
+                        AffineTransform transform = new AffineTransform();
+                        transform.rotate(Math.toRadians(0), 0, 0);
+                        Font driverFont = font.deriveFont(transform);
+                        graphics.setFont(driverFont);
+                        for (int i = 0; i < listOfFiles.length &&  i < 6; i++) {
+                            if (move[i])
+                                graphics.setColor(Color.GREEN);
+                            else graphics.setColor(Color.BLACK);
+
+                            if (click[i])
+                                graphics.setColor(Color.GREEN);
+                            if (loadOk && click[i]) {
+                                loadGameOption = false;
+                                Main.filename = listOfFiles[i].getName();
+                                Main.b=true;
+                                runGame = true;
+                                Main.game=true;
+                            }
+                            graphics.drawString(listOfFiles[i].getName().replace(".txt", ""), 300, 315 + (i * 34));
+                        }
+                        for (int i = 0; i < listOfFiles.length && i < 6; i++) {
+                            if (click[i]) {
+
+                            }
+                        }
                     } else {
                         init();
                     }
@@ -221,11 +257,12 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
 
         if (mainMenu.isNewGameMoved(e)) {
             runGame = true;
+            Main.game=true;
         } else if (mainMenu.isLoadGameMoved(e)) {
             loadGameOption = true;
             mainMenu.drawLoadPage();
         } else if (mainMenu.isScoreBoardGameMoved(e)) {
-            rank = true;
+            //rank = true;
         } else if (mainMenu.isSettingGameMoved(e)) {
             settingPanel = !mainMenu.isSettingOK(e);
             System.out.println("OK pressed.");
@@ -257,7 +294,32 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
      */
     @Override
     public void mousePressed(MouseEvent e) {
+        if (loadGameOption) {
+            if (e.getX() > 296 && e.getY() > 296 && e.getX() < 554 && e.getY() < 318)
+                click[0] = true;
+            else click[0]=false;
+            if (e.getX() > 296 && e.getY() > 330 && e.getX() < 554 && e.getY() < 355)
+                click[1] = true;
+            else click[1]=false;
+            if (e.getX() > 296 && e.getY() > 364 && e.getX() < 554 && e.getY() < 385)
+                click[2] = true;
+            else click[2]=false;
+            if (e.getX() > 296 && e.getY() > 396 && e.getX() < 554 && e.getY() < 420)
+                click[3] = true;
+            else click[3]=false;
+            if (e.getX() > 296 && e.getY() > 430 && e.getX() < 554 && e.getY() < 452)
+                click[4] = true;
+            else click[4]=false;
+            if (e.getX() > 296 && e.getY() > 466 && e.getX() < 554 && e.getY() < 486)
+                click[5] = true;
+            else click[5]=false;
+            if (e.getX() > 231 && e.getY() > 589 && e.getX() < 487 && e.getY() < 627)
+                loadOk = true;
+            if (e.getX() > 510 && e.getY() > 590 && e.getX() < 766 && e.getY() < 627)
+                loadGameOption = false;
 
+
+        }
     }
 
     /**
@@ -316,7 +378,27 @@ public class MainPage extends JFrame implements MouseMotionListener, MouseListen
      */
     @Override
     public void mouseMoved(MouseEvent e) {
-        if (graphics != null) {
+        if (loadGameOption) {
+            if (e.getX() > 296 && e.getY() > 296 && e.getX() < 554 && e.getY() < 318)
+                move[0] = true;
+            else move[0] = false;
+            if (e.getX() > 296 && e.getY() > 330 && e.getX() < 554 && e.getY() < 355)
+                move[1] = true;
+            else move[1] = false;
+            if (e.getX() > 296 && e.getY() > 364 && e.getX() < 554 && e.getY() < 385)
+                move[2] = true;
+            else move[2] = false;
+            if (e.getX() > 296 && e.getY() > 396 && e.getX() < 554 && e.getY() < 420)
+                move[3] = true;
+            else move[3] = false;
+            if (e.getX() > 296 && e.getY() > 430 && e.getX() < 554 && e.getY() < 452)
+                move[4] = true;
+            else move[4] = false;
+            if (e.getX() > 296 && e.getY() > 466 && e.getX() < 554 && e.getY() < 486)
+                move[5] = true;
+            else move[5] = false;
+        }
+        if (graphics != null && !loadGameOption) {
             if (mainMenu.isNewGameMoved(e)) {
                 loadGame = false;
                 setting = false;
