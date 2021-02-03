@@ -3,14 +3,8 @@ package khosro.model.component.plant;
 import khosro.model.component.Bullet.Bullet;
 import khosro.model.component.Sun;
 import khosro.model.component.zombie.Zombie;
-import khosro.model.map.MapHome;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import static java.lang.Thread.interrupted;
@@ -19,7 +13,7 @@ import static java.lang.Thread.interrupted;
  * SuperClass of all other plants.
  * Keep fields of plants.
  */
-public class Plants implements Cloneable {
+public class Plants implements Cloneable , Serializable {
 
     /**
      * Array of bullet that plant can shoot it.
@@ -30,7 +24,6 @@ public class Plants implements Cloneable {
     /**
      * Image address.
      */
-    protected BufferedImage img;
 
     /**
      * Image of plants.
@@ -81,7 +74,6 @@ public class Plants implements Cloneable {
 
     /**
      * @param bulletArr Array of bullet that plant can shoot it. If plant can't shoot a bullet, it equal to null.
-     * @param img       Image address.
      * @param image     Image of plants.
      * @param life      Each plants how many life time when zombies eat it.
      * @param bornTime  Time has left a plants card refresh.
@@ -89,26 +81,18 @@ public class Plants implements Cloneable {
      * @param y         Y location in map
      */
     public Plants(ArrayList<Bullet> bulletArr,
-                  BufferedImage img,
                   ImageIcon image,
                   double life,
                   long bornTime,
                   int x,
                   int y) {
         this.bulletArr = bulletArr;
-        this.img = img;
         this.image = image;
         this.life = life;
         this.bornTime = bornTime;
         this.x = x;
         this.y = y;
         live = true;
-
-        try {
-            img = ImageIO.read(new File(" input.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         image = new ImageIcon("input.gif");
     }
@@ -140,13 +124,6 @@ public class Plants implements Cloneable {
         this.bulletArr = bulletArr;
     }
 
-    public BufferedImage getImg() {
-        return img;
-    }
-
-    public void setImg(BufferedImage img) {
-        this.img = img;
-    }
 
     public ImageIcon getImage() {
         return image;

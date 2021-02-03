@@ -3,13 +3,14 @@ package khosro.model.component;
 import khosro.model.component.plant.Plants;
 
 import javax.swing.*;
+import java.io.Serializable;
 import java.util.Random;
 
 import static java.lang.Thread.interrupted;
 import static java.lang.Thread.sleep;
 
 
-public class Sun extends Plants implements Runnable {
+public class Sun extends Plants implements Runnable , Serializable {
     private int x;
     private int y;
     private Boolean sun=false,click=false,over=false;

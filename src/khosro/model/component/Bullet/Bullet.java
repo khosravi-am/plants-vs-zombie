@@ -3,10 +3,11 @@ package khosro.model.component.Bullet;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 
 import static java.lang.Thread.interrupted;
 
-public class Bullet implements Runnable{
+public class Bullet implements Runnable, Serializable {
     private ImageIcon image;
     private Long bornTime;
     private Boolean run=false;
@@ -92,5 +93,19 @@ public class Bullet implements Runnable{
             }
         }
         interrupted();
+    }
+
+    @Override
+    public String toString() {
+        return "Bullet{" +
+                "image=" + image +
+                ", bornTime=" + bornTime +
+                ", run=" + run +
+                ", power=" + power +
+                ", x=" + x +
+                ", y=" + y +
+                ", locX=" + locX +
+                ", locY=" + locY +
+                '}';
     }
 }

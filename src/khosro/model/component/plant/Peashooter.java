@@ -4,10 +4,7 @@ import khosro.model.component.Bullet.Bullet;
 import khosro.model.component.Bullet.PeaBullet;
 import khosro.model.map.MapHome;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.util.ArrayList;
 
 public class Peashooter extends Plants {
@@ -15,7 +12,6 @@ public class Peashooter extends Plants {
     private Boolean shoot=false;
     /**
      * @param bulletArr     Array of bullet that plant can shoot it. If plant can't shoot a bullet, it equal to null.
-     * @param img           Image address.
      * @param image         Image of plants.
      * @param life          Each plants how many life time when zombies eat it.
      * @param locX          X location in visual map
@@ -25,7 +21,6 @@ public class Peashooter extends Plants {
      * @param y             Y location in map
      */
     public Peashooter(ArrayList<Bullet> bulletArr,
-                      BufferedImage img,
                       ImageIcon image,
                       int life,
                       MapHome locX,
@@ -33,7 +28,7 @@ public class Peashooter extends Plants {
                       long bornTime,
                       int x,
                       int y) {
-        super(bulletArr, img, image, life, bornTime, x, y);
+        super(bulletArr, image, life, bornTime, x, y);
         cost = 100;
     }
 

@@ -2,16 +2,17 @@ package khosro.model.component.zombie;
 
 import khosro.model.map.MapRow;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Zombies {
+public class Zombies implements Serializable {
     private ArrayList<Zombie> normZombies;
     private ArrayList<Zombie> coneHeadZombies;
     private ArrayList<Zombie> bucketHeadZombies;
     private Zombie z;
 
-    public Zombies() {
+    public Zombies()  {
         createZombies();
     }
 
@@ -210,5 +211,13 @@ public class Zombies {
         return max;
     }
 
-
+    @Override
+    public String toString() {
+        return "Zombies{" +
+                "normZombies=" + normZombies +
+                ", coneHeadZombies=" + coneHeadZombies +
+                ", bucketHeadZombies=" + bucketHeadZombies +
+                ", z=" + z +
+                '}';
+    }
 }

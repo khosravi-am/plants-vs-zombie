@@ -1,8 +1,9 @@
 package khosro.model.component.zombie;
 
 import javax.swing.*;
+import java.io.Serializable;
 
-public class Zombie implements Runnable {
+public class Zombie implements Runnable , Serializable {
     private int x, y, width, height, life, row, home, headLife, speed = 2;
     private ImageIcon image, gif;
     private double power;
@@ -149,5 +150,26 @@ public class Zombie implements Runnable {
                 bornTime = System.currentTimeMillis();
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Zombie{" +
+                "x=" + x +
+                ", y=" + y +
+                ", width=" + width +
+                ", height=" + height +
+                ", life=" + life +
+                ", row=" + row +
+                ", home=" + home +
+                ", headLife=" + headLife +
+                ", speed=" + speed +
+                ", image=" + image +
+                ", gif=" + gif +
+                ", power=" + power +
+                ", live=" + live +
+                ", run=" + run +
+                ", bornTime=" + bornTime +
+                '}';
     }
 }

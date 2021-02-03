@@ -5,8 +5,6 @@ import khosro.model.component.Sun;
 import khosro.model.map.MapHome;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 /**
@@ -24,7 +22,6 @@ public class SunFlower extends Plants {
 
     /**
      * @param bulletArr Array of bullet that plant can shoot it. If plant can't shoot a bullet, it equal to null.
-     * @param img       Image address.
      * @param image     Image of plants.
      * @param life      Each plants how many life time when zombies eat it.
      * @param locX      X location in visual map
@@ -35,7 +32,6 @@ public class SunFlower extends Plants {
      */
 
     public SunFlower(ArrayList<Bullet> bulletArr,
-                     BufferedImage img,
                      ImageIcon image,
                      int life,
                      MapHome locX,
@@ -43,7 +39,7 @@ public class SunFlower extends Plants {
                      long bornTime,
                      int x,
                      int y) {
-        super(bulletArr, img, image, life, bornTime, x, y);
+        super(bulletArr, image, life, bornTime, x, y);
         cost = 100;
         preparingTime = 5;
     }
